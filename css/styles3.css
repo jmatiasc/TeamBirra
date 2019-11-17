@@ -1,0 +1,32 @@
+.cuerpo {
+  overflow: hidden;
+  font-family: Catamaran,sans-serif;
+}
+
+.imagen {
+  float: left;
+  border-style: inset;
+  width: 40%;
+
+}
+
+.datos
+{
+  position: relative;
+  float: right;
+  width: 50%;
+}
+
+.btn-comprar{
+  float: right;
+  position: absolute;
+  right: 40%;
+}
+.datos h2,
+h6{
+  font-family: Raleway,sans-serif;
+}
+
+.photo {
+  width: 100%;
+}

@@ -1,0 +1,115 @@
+.cuerpo{
+  overflow: hidden;
+  font-family: Catamaran,sans-serif;
+}
+
+.navegador{
+  float: left;
+  border-style: groove;
+  font-family: Catamaran,sans-serif;
+  margin: 2%;
+}
+
+.navegador li{
+  font-size: 12px;
+}
+
+.vip-products{
+
+  width: 75%;
+  float: right;
+  overflow: hidden;
+  padding: 1%;
+
+}
+
+.product{
+  position:relative;
+  float: left;
+  width: 23%;
+  height: 320px;
+  border-style: inset;
+  margin: 1%;
+  padding: 1%;
+  padding-bottom: 5%;
+}
+
+.product .photo{
+  width: 80%;
+  height: 100px ;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.vip-products .special{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+.product a,
+h3,
+p{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+h5{
+  font-family: Catamaran,sans-serif;
+}
+
+
+.cuerpo .cambiarPagArticulos {
+  position: absolute;
+  left: 50%;
+  margin: 1%;
+}
+@media (max-width: 3800px) {
+
+  .navegador{
+    height: 699px;
+    width: 19%;
+  }
+
+  .vip-products{
+
+    margin: 1%;
+  }
+
+
+  .cuerpo .cambiarPagArticulos {
+    bottom: -190px;
+
+  }
+
+}
+@media (max-width: 600px) {
+
+.vip-products{
+  width: 60%;
+  padding:5%;
+  position: relative;
+}
+  .product{
+    width: 100%;
+    float:right;
+  }
+
+  .navegador {
+    width: 30%;
+    margin: 5%;
+    float:left;
+  }
+
+  .cambiarPagArticulos{
+    position: absolute;
+    bottom: -5px;
+  }
+
+
+  }

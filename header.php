@@ -21,8 +21,8 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACERCA DE</a>
 							<div class="dropdown-menu" aria-labelledby="dropdown07">
-								<a class="dropdown-item" href="#">FAQ</a>
-								<a class="dropdown-item" href="#">CONTACTO</a>
+								<a class="dropdown-item" href="faq.php">FAQ</a>
+								<a class="dropdown-item" href="contact.php">CONTACTO</a>
 							</div>
 						</li>
 					</ul>

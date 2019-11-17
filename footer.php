@@ -17,7 +17,7 @@
 		<a href="faq.php">FORMAS DE PAGO</a>
 		<a href="faq.php">PREGUNTAS FRECUENTES</a>
 		<a href="faq.php">COMENTARIOS DE CLIENTES</a>
-		<a href="index.php">CONTACTANOS</a>
+		<a href="contact.php">CONTACTANOS</a>
 		<a href="faq.php">EVENTOS</a>
 		<a href="faq.php">REGALOS EMPRESARIALES</a>
 		<a href="index.php">BLOG</a>

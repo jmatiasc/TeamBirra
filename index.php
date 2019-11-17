@@ -3,7 +3,7 @@
 <head>
 	<title>Team Birra | Home</title>
 	<?=!include_once('head.php'); ?>
-</head
+</head>
 <body>
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 		

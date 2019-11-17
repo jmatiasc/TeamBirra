@@ -13,10 +13,10 @@
 							<a class="nav-link" href="./index.php">HOME <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">CERVEZAS</a>
+							<a class="nav-link" href="register.php">REGISTRO</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">LOGIN</a>
+							<a class="nav-link" href="login.php">LOGIN</a>
 						</li>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ACERCA DE</a>

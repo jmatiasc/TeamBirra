@@ -1,20 +1,78 @@
-.cuerpo{
+/*----------------------------------------------ESTILO DE PRODUCTO------------------------------*/
+.cuerpo {
   overflow: hidden;
   font-family: Catamaran,sans-serif;
 }
 
+.imagen {
+  float: left;
+  border-style: inset;
+  width: 40%;
+
+}
+
+.datos
+{
+
+  position: relative;
+  float: right;
+  width: 50%;
+
+}
+
+.datos h2, h6, h3{
+    text-align: center;
+}
+
+.datos p{
+    text-align: left;
+}
+
+.btn-comprar{
+  float: right;
+  position: absolute;
+  right: 40%;
+}
+.datos h2,
+h6{
+  font-family: Raleway,sans-serif;
+}
+
+.photo {
+  width: 100%;
+}
+
+/*----------------------------------------------ESTILO DE CATALOGO--------------------------------------------*/
+ /*.cuerpo{
+  overflow: hidden;
+  font-family: Catamaran,sans-serif;
+}*/
+
 .navegador{
   float: left;
-  border-style: groove;
+  border-style: solid;
+  border-color: #434343;
+  border-right: solid;
   font-family: Catamaran,sans-serif;
   margin: 2%;
+
 }
 
 .navegador li{
   font-size: 12px;
 }
 
-.vip-products{
+.menu li a:hover{
+  background-color:red;
+
+}
+
+.menu li ul{
+        list-style: none;
+}
+
+
+.catalogo-productos{
 
   width: 75%;
   float: right;
@@ -27,23 +85,27 @@
   position:relative;
   float: left;
   width: 23%;
-  height: 320px;
-  border-style: inset;
-  margin: 1%;
+  border-style:solid;
+  border-color: #434343;
+  margin: 2px;
   padding: 1%;
   padding-bottom: 5%;
 }
 
-.product .photo{
-  width: 80%;
-  height: 100px ;
+.catalogo-productos :hover{
+  background: #434343;
+}
+
+.product .foto{
+  width: 70%;
+  height: 190px ;
   display: block;
   margin-left: auto;
   margin-right: auto;
 
 }
 
-.vip-products .special{
+.catalogo-productos .special{
   position: absolute;
   right: 0;
   top: 0;
@@ -72,26 +134,26 @@ h5{
 @media (max-width: 3800px) {
 
   .navegador{
-    height: 699px;
+    /*height: 699px;*/
     width: 19%;
   }
 
-  .vip-products{
+  .catalogo-productos{
 
     margin: 1%;
   }
 
 
   .cuerpo .cambiarPagArticulos {
-    bottom: -190px;
+    bottom: -5px;
 
   }
 
 }
 @media (max-width: 600px) {
 
-.vip-products{
-  width: 60%;
+.catalogo-productos{
+  width: 58%;
   padding:5%;
   position: relative;
 }

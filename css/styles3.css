@@ -1,0 +1,116 @@
+/*		<section class="catalogo-productos">
+			<?php foreach ($productos as $producto) : ?>
+									<article class="product">
+										<div class="contenedor-foto">
+											<img class="foto"  src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
+
+						          <h3>$ <?php echo  $producto["precio"] ?> </h3>
+									</div>
+										<a class="nombre" href="Producto.php"><h5><?php echo  $producto["nombre"] ?></h5></a>
+						        <p><?php echo  $producto["descripcion"] ?></p>
+						        <a href="#" class="boton-Comprar btn btn-lg btn-secondary">COMPRAR</a>
+
+
+						      </article>
+			<?php endforeach ?>
+*/
+
+.productoComprado {
+  padding: 1%;
+    overflow: hidden;
+    border-style: inset;
+    /*width: 80%;*/
+
+}
+
+.imagenCompra img{
+  /*width: 15%;*/
+  height: 200px;
+  border-style: inset;
+  margin-right:  2%;
+  float: left;
+}
+
+.descripcionCompra{
+  border-style: solid;
+  padding: 5%;
+  float: left;
+  /*width: 60%;*/
+  height: 200px;
+  text-align: center;
+  margin-right: 1%;
+}
+
+.precio{
+  text-align:center;
+  padding: 5%;
+  height: 200px;
+/*  width: 22%;*/
+  float: left;
+  border-style: solid;
+}
+
+.mostrar-total-compra,
+.botonParaComprar{
+  float: right;
+  /*margin-right: 25%;*/
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media  (max-width: 600px) {
+
+  .productoComprado {
+      width: 100%;
+
+  }
+  .imagenCompra img{
+    width: 15%;
+
+  }
+
+  .descripcionCompra{
+    width: 58%;
+  }
+
+  .precio{
+     width: 24%;
+
+  }
+
+  .mostrar-total-compra,
+  .botonParaComprar{
+    margin-right: 10%;
+  }
+
+}
+
+@media (  max-width: 3800px){
+  .productoComprado {
+
+      width: 80%;
+
+  }
+
+  .imagenCompra img{
+    width: 15%;
+
+  }
+
+  .descripcionCompra{
+
+    width: 60%;
+
+  }
+
+  .precio{
+   width: 22%;
+  }
+
+  .mostrar-total-compra,
+  .botonParaComprar{
+    margin-right: 25%;
+  }
+
+
+}

@@ -324,7 +324,7 @@
 									</div>
 										<a class="nombre" href="Producto.php"><h5><?php echo  $producto["nombre"] ?></h5></a>
 						        <p><?php echo  $producto["descripcion"] ?></p>
-						        <a href="#" class="boton-Comprar btn btn-lg btn-secondary">COMPRAR</a>
+						        <a href="carrito.php" class="boton-Comprar btn btn-lg btn-secondary">COMPRAR</a>
 
 
 						      </article>

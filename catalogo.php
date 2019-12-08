@@ -1,4 +1,4 @@
-
+	
 <?php
 
 $productos = [
@@ -182,14 +182,14 @@ $filtros = [
 		<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 	</head>
 	<body>
-		<div class="container">
+		<div class="container-fluid">
 			<!-- cabecera -->
 			<header class="main-header">
 	      		<?=!include_once('header.php'); ?>
 			</header>
 			<section class="cuerpo" class="row">
 				<!-- filtro -->
-				<nav class="navegador" class="col-12 col-md-2 col-lg-4">
+				<nav class="navegador" class="col-1 col-md-2 col-lg-3">
 	      			<ul class="menu">
 						<?php foreach ($filtros as $filtro => $value): ?>
 						<li> <a href="#"> <?php echo $filtro ?> </a>
@@ -213,9 +213,9 @@ $filtros = [
 	    		</nav>
 				<!-- productos -->
 				<div class="row">
-					<section class="catalogo-productos" class="col-12 col-md-2 col-lg-4">
+					<section class="catalogo-productos">
 						<?php foreach ($productos as $producto) : ?>
-							<article class="product" class="col-12 col-md-2 col-lg-4">
+							<article class="product" class="col-sm-11 col-md-12 col-lg-9">
 								<div class="contenedor-foto">
 									<img class="foto" src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
 		          					<h3>$ <?php echo $producto["precio"] ?> </h3>

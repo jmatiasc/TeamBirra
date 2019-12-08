@@ -64,19 +64,23 @@ h6{
   float: right;
   overflow: hidden;
   padding: 1%;
+  text-align: justify;
 }
 .product{
   position:relative;
+  float: left;
   border-style:solid;
   border-color: #434343;
   margin: 2px;
   padding: 1%;
   padding-bottom: 5%;
+  text-align: center;
 }
 .catalogo-productos :hover{
   background: #434343;
 }
 .product .foto{
+  height: 30vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -88,4 +92,3 @@ h6{
 h5{
   font-family: Catamaran,sans-serif;
 }
-

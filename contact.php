@@ -32,8 +32,11 @@
 			        <br>
                     <label for="mensaje">Mensaje</label>
                     <br>
-			        <br>
-                    <textarea name="mensaje" id="mensaje" cols="80" rows="8"></textarea>
+					<br>
+					<div class=row>
+						<textarea style="width: 100%;" name="mensaje" id="mensaje"></textarea>
+					</div>
+					<br>
 			        <button type="button" class="btn btn-info">Enviar formulario</button>
   			    </div>
   		    </form>

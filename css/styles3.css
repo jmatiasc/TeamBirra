@@ -14,13 +14,10 @@
 						      </article>
 			<?php endforeach ?>
 */
-
 .productoComprado {
   padding: 1%;
-    overflow: hidden;
-    border-style: inset;
-    /*width: 80%;*/
-
+  overflow: hidden;
+  border-style: inset;
 }
 
 .imagenCompra img{

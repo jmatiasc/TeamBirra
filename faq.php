@@ -6,14 +6,18 @@
 		<?=!include_once('header.php'); ?>
 		<main role="main" class="inner cover text-center">
             <h3>COSTOS DE ENVÍO</h3>
-            <p>¿Cómo se calculan los costos de envío?<br>Enviamos tu pedido a la dirección que quierás. Hacemos envíos a todo el país.<br>A continuación podés ver el costo de envío correspondiente:</p>
-			<img src="imgJeziel/CostosEnvio.png" alt="">
+			<p>¿Cómo se calculan los costos de envío?<br>Enviamos tu pedido a la dirección que quierás. Hacemos envíos a todo el país.<br>A continuación podés ver el costo de envío correspondiente:</p>
+			<div>
+				<img style="width: 100%;"src="imgJeziel/CostosEnvio.png" alt="">
+			</div>
 		    <h3>TIEMPOS DE ENVÍO</h3>
 			<p>¿Cómo hago para saber el estado de mi pedido, me van a avisar?
 Por supuesto! En cuanto tu pedido sea despachado, vas a recibir un mail del correo. En el mismo, vas a contar con la información del nro de envío de compra para poder hacer su seguimiento de entrega.</p>
 		    <h3>FORMAS DE PAGO</h3>
 			<p>A continuación podés ver todas nuestras formas de pago:</p>
-			<img src="imgJeziel/formaspago.png" alt="">
+			<div>
+				<img style="width: 100%;" src="imgJeziel/formaspago.png" alt="">
+			</div>
 		    <h3>COMENTARIOS DE CLIENTES</h3>
 			<p>Jorge: Pude degustar una magnifica cerveza artesanal por solo $60000 pesos, estoy mas que satisfecho.</p>
 			<p>María: La favorita mía y de mis amigxs</p>

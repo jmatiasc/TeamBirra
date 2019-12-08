@@ -8,24 +8,20 @@
   float: left;
   border-style: inset;
   width: 40%;
-
 }
 
-.datos
-{
-
+.datos{
   position: relative;
   float: right;
   width: 50%;
-
 }
 
 .datos h2, h6, h3{
-    text-align: center;
+  text-align: center;
 }
 
 .datos p{
-    text-align: left;
+  text-align: left;
 }
 
 .btn-comprar{
@@ -43,11 +39,10 @@ h6{
 }
 
 /*----------------------------------------------ESTILO DE CATALOGO--------------------------------------------*/
- /*.cuerpo{
+.cuerpo{
   overflow: hidden;
   font-family: Catamaran,sans-serif;
-}*/
-
+}
 .navegador{
   float: left;
   border-style: solid;
@@ -55,123 +50,42 @@ h6{
   border-right: solid;
   font-family: Catamaran,sans-serif;
   margin: 2%;
-
 }
-
 .navegador li{
   font-size: 12px;
 }
-
 .menu li a:hover{
   background-color:red;
-
 }
-
 .menu li ul{
-        list-style: none;
+  list-style: none;
 }
-
-
 .catalogo-productos{
-
-  width: 75%;
   float: right;
   overflow: hidden;
   padding: 1%;
-
 }
-
 .product{
   position:relative;
-  float: left;
-  width: 23%;
   border-style:solid;
   border-color: #434343;
   margin: 2px;
   padding: 1%;
   padding-bottom: 5%;
 }
-
 .catalogo-productos :hover{
   background: #434343;
 }
-
 .product .foto{
-  width: 70%;
-  height: 190px ;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
-
-.catalogo-productos .special{
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-
-.product a,
-h3,
-p{
-  display: block;
+.product a, h3, p{
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-
 }
 h5{
   font-family: Catamaran,sans-serif;
 }
 
-
-.cuerpo .cambiarPagArticulos {
-  position: absolute;
-  left: 50%;
-  margin: 1%;
-}
-@media (max-width: 3800px) {
-
-  .navegador{
-    /*height: 699px;*/
-    width: 19%;
-  }
-
-  .catalogo-productos{
-
-    margin: 1%;
-  }
-
-
-  .cuerpo .cambiarPagArticulos {
-    bottom: -5px;
-
-  }
-
-}
-@media (max-width: 600px) {
-
-.catalogo-productos{
-  width: 58%;
-  padding:5%;
-  position: relative;
-}
-  .product{
-    width: 100%;
-    float:right;
-  }
-
-  .navegador {
-    width: 30%;
-    margin: 5%;
-    float:left;
-  }
-
-  .cambiarPagArticulos{
-    position: absolute;
-    bottom: -5px;
-  }
-
-
-  }

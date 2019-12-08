@@ -174,75 +174,66 @@ $filtros = [
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
-			<title>Catalogo</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<?=!include_once('head.php'); ?>
+		<title>Catalogo</title>
 		<link rel="stylesheet" href="css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/styles2.css">
 		<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-    <?=!include_once('head.php'); ?>
-		<title>Responsive Web Design</title>
 	</head>
 	<body>
-	<div class="container">
-
+		<div class="container">
 			<!-- cabecera -->
 			<header class="main-header">
-	      <?=!include_once('header.php'); ?>
+	      		<?=!include_once('header.php'); ?>
 			</header>
-
-
-	<section class="cuerpo">
-			<!-- filtro -->
-			<nav class="navegador">
-	      <ul class="menu">
-					<?php foreach ($filtros as $filtro => $value): ?>
-					<li> <a href="#"> <?php echo $filtro ?> </a>
-						<ul>
-							<?php foreach ($value as $val): ?>
-							<li> <a href="#"><?php echo $val ?></a> </li>
-							<?php endforeach ?>
-	        	</ul>
-					</li>	<?php endforeach ?>
-	        <li > <a href="#">Graduacion Alcoholica</a>
-	          <ul>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="2">2%</a> </li>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="25">2.5%</a> </li>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="45">4.5%</a> </li>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="6">6%</a> </li>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="73">7.3%</a> </li>
-	            <li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="12">12%</a> </li>
-	          </ul>
-	        </li>
-	      </ul>
-	    </nav>
-
-			<!-- productos -->
-			<section class="catalogo-productos">
-				<?php foreach ($productos as $producto) : ?>
-					<article class="product">
-						<div class="contenedor-foto">
-							<img class="foto" src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
-		          <h3>$ <?php echo $producto["precio"] ?> </h3>
-						</div>
-						<a class="nombre" href="Producto.php"><h5><?php echo  $producto["nombre"] ?></h5></a>
-		        <p><?php echo $producto["descripcion"] ?></p>
-		        <a href="carrito.php" class="boton-Comprar btn btn-lg btn-secondary">COMPRAR</a>
-		      </article>
-				<?php endforeach ?>
+			<section class="cuerpo" class="row">
+				<!-- filtro -->
+				<nav class="navegador" class="col-12 col-md-2 col-lg-4">
+	      			<ul class="menu">
+						<?php foreach ($filtros as $filtro => $value): ?>
+						<li> <a href="#"> <?php echo $filtro ?> </a>
+					<ul>
+						<?php foreach ($value as $val): ?>
+						<li> <a href="#"><?php echo $val ?></a> </li>
+						<?php endforeach ?>
+	        		</ul>
+						</li>	<?php endforeach ?>
+	        			<li > <a href="#">Graduacion Alcoholica</a>
+	          		<ul>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="2">2%</a> </li>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="25">2.5%</a> </li>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="45">4.5%</a> </li>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="6">6%</a> </li>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="73">7.3%</a> </li>
+	            		<li> <a href="#"><input type="checkbox" name="graduacionAlcoholica" value="12">12%</a> </li>
+	          		</ul>
+	        		</li>
+	      			</ul>
+	    		</nav>
+				<!-- productos -->
+				<div class="row">
+					<section class="catalogo-productos" class="col-12 col-md-2 col-lg-4">
+						<?php foreach ($productos as $producto) : ?>
+							<article class="product" class="col-12 col-md-2 col-lg-4">
+								<div class="contenedor-foto">
+									<img class="foto" src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
+		          					<h3>$ <?php echo $producto["precio"] ?> </h3>
+								</div>
+								<a class="nombre" href="Producto.php"><h5><?php echo  $producto["nombre"] ?></h5></a>
+		        				<p><?php echo $producto["descripcion"] ?></p>
+		        				<a href="carrito.php" class="boton-Comprar btn btn-lg btn-secondary">COMPRAR</a>
+		      				</article>
+						<?php endforeach ?>
+					</section>
+				</div>
 			</section>
-		</section>
-
-		<br><br><br><br>
-
-		<!-- footer -->
-		<footer class="main-footer">
-	      <?=!include_once('footer.php'); ?>
-		</footer>
-
-	</div>
-
-	<?=!include_once('scripts.php'); ?>
+			<br><br><br><br>
+			<!-- footer -->
+			<footer class="main-footer">
+	    		<?=!include_once('footer.php'); ?>
+			</footer>
+		</div>
+		<?=!include_once('scripts.php'); ?>
 	</body>
 </html>

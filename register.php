@@ -8,6 +8,7 @@ $pPass = "";
 $pPass2 = "";
 /*se crea un array para guardar los errores que se encontraron en la validacion y luego mostrarlos*/
 if($_POST){
+  $usuario["estado"] = false;
   $pNombre = $_POST["name"];
   $pApellido = $_POST["apellido"];
   $pEmail = $_POST["email"];
@@ -72,7 +73,7 @@ if($_POST){
 			"apellido" => $_POST["apellido"],
       "email" =>$_POST["email"],
       "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
-    ];
+  ];
 
     /* se abre el archivo y se lo guarda en la variable llamada $contenidoArchico (todavia no tiene ningun formato definido)*/
     $contenidoArchivo=file_get_contents("archivos/user.txt");

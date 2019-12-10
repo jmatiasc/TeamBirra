@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Team Birra | Login</title>
-  	<?=!include_once('head.php'); ?>
-  </head>
-  <body>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <?=!include_once('header.php'); ?>
-      <?=!include_once('sectionPerfil.php'); ?>
-      <?=!include_once('footer.php'); ?>
+<?php
+if ($_GET) {
+  if ($_GET["salir"]){
+    session_destroy();
+  }
+}
+?>
+
+<main role="main" class="inner cover text-center">
+  <section class="login-block">
+    <div class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
+      <div class="row ">
+        <div class="col login-sec">
+          <h3 class="text-center">Mi perfil</h3>
+            <p> <?php echo $_SESSION["usuario"]["name"]; ?> </p>
+            <p> <?php echo $_SESSION["usuario"]["apellido"]; ?> </p>
+            <p> <?php echo $_SESSION["usuario"]["email"]; ?> </p>
+        </div>
+        <div>
+          <form class="" action='' method='get'>
+            <input type="submit" name="salir" value="Cerrar Sesión">
+          </form>
+        </div>
+      </div>
     </div>
-	    <?=!include_once('scripts.php'); ?>
-  </body>
-</html>
+  </section>
+</main>

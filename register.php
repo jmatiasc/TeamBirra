@@ -1,4 +1,5 @@
 <?php
+session_start();
 $mostrarError = "";
 $pNombre = "";
 $pApellido = "";
@@ -8,7 +9,6 @@ $pPass = "";
 $pPass2 = "";
 /*se crea un array para guardar los errores que se encontraron en la validacion y luego mostrarlos*/
 if($_POST){
-  $usuario["estado"] = false;
   $pNombre = $_POST["name"];
   $pApellido = $_POST["apellido"];
   $pEmail = $_POST["email"];
@@ -49,7 +49,7 @@ if($_POST){
 
     /*Validación Password*/
       if (isset($_POST["password"]) && strlen($_POST["password"])!=0) {
-        if (strlen($_POST["password"]) > 8) {
+        if (strlen($_POST["password"]) > 7) {
           if(isset($_POST["c_password"]) && strlen($_POST["c_password"])!=0 ) {
             if($_POST["password"]==$_POST["c_password"]){
               $usuario["password"]=password_hash($_POST["password"], PASSWORD_DEFAULT);
@@ -88,7 +88,7 @@ if($_POST){
     file_put_contents("archivos/user.txt", json_encode($arrayUsuarios));
 
 		/*LUEGO DE ESCRIBIR EL ARCHIVO DE USUARIOS, REDIRECCIONAR*/
-		header("Location:login.php");
+		header("Location:usuario.php");
 
 		exit;
   } else {

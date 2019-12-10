@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
 </head>
 <body>
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-		
+
 		<?=!include_once('header.php'); ?>
 
 		<main role="main" class="inner cover text-center">
@@ -21,7 +22,7 @@
 
 	</div>
 
-	<?=!include_once('scripts.php'); ?>	
+	<?=!include_once('scripts.php'); ?>
 
 </body>
 </html>

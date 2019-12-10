@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,26 +16,19 @@
             <form action="index.php">
   			    <div class="form-group">
   			        <label for="nombre">Nombre y apellido</label>
-			        <br>
-			        <br>
+			        <br><br>
   			        <input type="text" class="form-control" id="nombre">
-                    <br>
-			        <br>
-                    <label for="exampleInputEmail1">E-mail</label>
-			        <br>
-			        <br>
+              <br><br>
+                <label for="exampleInputEmail1">E-mail</label>
+			        <br><br>
   			        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <br>
-			        <br>
-                    <label for="telefono">Teléfono</label>
-                    <br>
-			        <br>
+              <br><br>
+                <label for="telefono">Teléfono</label>
+              <br><br>
   			        <input type="text" class="form-control" id="telefono">
-                    <br>
-			        <br>
-                    <label for="mensaje">Mensaje</label>
-                    <br>
-					<br>
+              <br><br>
+                <label for="mensaje">Mensaje</label>
+              <br><br>
 					<div class=row>
 						<textarea style="width: 100%;" name="mensaje" id="mensaje"></textarea>
 					</div>
@@ -48,6 +44,6 @@
             <p>contactos@cerveza.com</p>
 		</main>
 	</div>
-	<?=!include_once('scripts.php'); ?>	
+	<?=!include_once('scripts.php'); ?>
 </body>
 </html>

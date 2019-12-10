@@ -1,0 +1,1 @@
+{"usuarios":[{"name":"cintia","apellido":"valero","email":"cintiavalero2001@gmail.com","password":"$2y$10$Ymi\/7WXV8IbINvrKNmOgQeJPDYpF\/OIgP5BO.cnJ.cSrlAQh30HQG"},{"name":"cintia","apellido":"valero","email":"cintiavalero2001@gmail.com","password":"$2y$10$Px\/dtU2oY5akW4AmAEm12OiVOm2RQTl11Tx1tc0KTlvdF1Ttgi2.."}]}

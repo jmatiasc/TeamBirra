@@ -1,5 +1,7 @@
 		<!-- productos -->
-<?php $productos = [
+<?php
+session_start();
+$productos = [
 
 0 => [
 	"nombre" =>"Andes Ipa",
@@ -77,7 +79,7 @@
 				TOTAL: <?php echo "$sumarTotal" ?>
 			</div>
 				<div class="botonParaComprar">
-					<a href="index.php" class="boton-Comprar btn btn-lg btn-secondary">finalizar compra</a>
+					<a href="index.php" class="boton-Comprar btn btn-lg btn-secondary">Finalizar compra</a>
 				</div>
 		</section>
 <br><br><br><br>

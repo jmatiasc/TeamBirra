@@ -1,6 +1,6 @@
-	
-<?php
 
+<?php
+session_start();
 $productos = [
 
 	0 => [

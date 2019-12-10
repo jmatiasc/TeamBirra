@@ -24,26 +24,32 @@ if($_POST){
 
       if (isset($_POST["password"]) && strlen($_POST["password"])!=0) {
         if (strlen($_POST["password"]) < 8) {
-         $error[] = "La contraseña debe tener mínimo 8 caracterres";
+         $error[] = "La contraseña ingresada es incorrecta";
         }
       } else {
         $error[]="Ingresá tu contraseña";
       }
 
-        foreach ($arrayUsuarios as $usuarios => $usuarios2) {
-            foreach ($usuarios2 as $posUsuario => $usuario) {
-                    $usuario["estado"] = false;
-                    if ($_POST["email"] == $usuario["email"]) {
-                            if (password_verify($_POST["password"], $usuario["password"]) == false) {
-                            $error[] = "La contraseña ingresada es incorrecta";
-                            } else {
-                            $usuario["estado"] = true;
-                            header("Location:perfil.php");
-                            break;
-                            }
-                    } else {
-                    $error[] = "El email ingresado no coincide con ninguna cuenta";                    }
-                    }
+      if (isset($arrayUsuarios["usuarios"])) {
+              foreach ($arrayUsuarios as $usuarios => $usuarios2) {
+                  foreach ($usuarios2 as $posUsuario => $usuario) {
+                          if ($_POST["email"] == $usuario["email"]) {
+                                  if (password_verify($_POST["password"], $usuario["password"]) == false) {
+                                  $error[] = "La contraseña ingresada es incorrecta";
+                                  } else {
+                                      $_SESSION["usuario"]["name"] = $usuario["name"];
+                                      $_SESSION["usuario"]["apellido"] = $usuario["apellido"];
+                                      $_SESSION["usuario"]["email"] = $usuario["email"];
+                                  header("Location:usuario.php");
+                                  break;
+                                  }
+                          } else {
+                          $error[] = "El email ingresado no coincide con ninguna cuenta";
+                          }
+                  }
+              }
+        } else {
+          $error[] = "El email ingresado no coincide con ninguna cuenta";
         }
 
 
@@ -53,17 +59,6 @@ if($_POST){
 } /*fin del if(!$_POST)*/
  ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Team Birra | Login</title>
-	<?=!include_once('head.php'); ?>
-</head>
-<body>
-	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
-		<?=!include_once('header.php'); ?>
-
 		<main role="main" class="inner cover text-center">
 			<section class="login-block">
 				<div class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
@@ -71,7 +66,7 @@ if($_POST){
 						<div class="row ">
 							<div class="col login-sec">
 								<h3 class="text-center">Iniciar Sesion</h3>
-								<form class="login-form" action='login.php' method='POST' >
+								<form class="login-form" action='usuario.php' method='POST' >
 									   <fieldset >
 											<!-- DIV DEL INGRESO DE EMAIL-->
 											<div class="form-group">
@@ -106,12 +101,3 @@ if($_POST){
 				</div>
 			</section>
 		</main>
-
-		<?=!include_once('footer.php'); ?>
-
-	</div>
-
-	<?=!include_once('scripts.php'); ?>
-
-</body>
-</html>

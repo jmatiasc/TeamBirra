@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <?=!include_once('head.php'); ?>
@@ -26,7 +29,7 @@ Por supuesto! En cuanto tu pedido sea despachado, vas a recibir un mail del corr
 		    <h3>REGALOS EMPRESARIALES</h3>
 			<p>¿El Project Manager quiere que trabajes toda la noche? <br> Pedile una cerveza de acá, y te llevamos una más de regalo.</p>
 		    <h3>NOSOTROS</h3>
-			<p>Más de 80 apasionados por la cerveza que se esmeran día a día para hacer las cervezas más ricas, mejorar la calidad, ser innovadores, creativos y brindarle a nuestros clientes más de lo que esperan. 
+			<p>Más de 80 apasionados por la cerveza que se esmeran día a día para hacer las cervezas más ricas, mejorar la calidad, ser innovadores, creativos y brindarle a nuestros clientes más de lo que esperan.
 Salud!</p>
 		    <h3>PRENSA</h3>
 			<p>Para comunicados de prensa, llenar el formulario correspondiente en la pagina de contacto</p>
@@ -35,6 +38,6 @@ Salud!</p>
 		</main>
 		<?=!include_once('footer.php'); ?>
 	</div>
-	<?=!include_once('scripts.php'); ?>	
+	<?=!include_once('scripts.php'); ?>
 </body>
 </html>

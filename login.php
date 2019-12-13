@@ -40,6 +40,7 @@ if($_POST){
                                       $_SESSION["usuario"]["name"] = $usuario["name"];
                                       $_SESSION["usuario"]["apellido"] = $usuario["apellido"];
                                       $_SESSION["usuario"]["email"] = $usuario["email"];
+                                      $_SESSION["usuario"]["imagen"] = $usuario["imagen"];
                                   header("Location:usuario.php");
                                   break;
                                   }

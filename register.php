@@ -7,6 +7,7 @@ $pEmail = "";
 $pEmail2 = "";
 $pPass = "";
 $pPass2 = "";
+
 /*se crea un array para guardar los errores que se encontraron en la validacion y luego mostrarlos*/
 if($_POST){
   $pNombre = $_POST["name"];
@@ -15,6 +16,7 @@ if($_POST){
   $pEmail2 = $_POST["c_email"];
   $pPass = $_POST["password"];
   $pPass2 = $_POST["c_password"];
+
 
     /*Validación Nombre y Apellido*/
      if(isset($_POST["name"]) && strlen($_POST["name"])!=0){
@@ -29,6 +31,7 @@ if($_POST){
 		 }
 
     /*Validación Email*/
+    /*falta validar que no exista dos usuarios con el mismo email*/
       if (isset($_POST["email"]) && strlen($_POST["email"])!=0) {
         if (isset($_POST["c_email"]) && strlen($_POST["c_email"])!=0) {
           if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)!= False) {
@@ -66,6 +69,24 @@ if($_POST){
         $error[]="Ingresá una contraseña";
       }
 
+    /*validacion Imagen*/
+    if($_FILES){
+      if($_FILES["img"]["error"]!=0){
+          $error[]="Ingresá una imagen";
+      }
+      else {
+        $ext = pathinfo($_FILES["img"]["name"],PATHINFO_EXTENSION);
+
+        if($ext !="jpg" && $ext!= "jpeg" && $ext!="png"){
+          $error[]="La imagen debe ser del tipo JPG,JPEG O PNG";
+        }
+        else {
+            move_uploaded_file($_FILES["img"]["tmp_name"],"archivos/".$pEmail.".".$ext);
+        }
+      }
+
+    }
+
    /*si no hay errores el usuario se guardara en nuesto archivo de registo de usuarios*/
   if(count($error)==0){
     $usuario = [
@@ -73,6 +94,7 @@ if($_POST){
 			"apellido" => $_POST["apellido"],
       "email" =>$_POST["email"],
       "password" => password_hash($_POST["password"],PASSWORD_DEFAULT),
+      "imagen" =>$pEmail.".".$ext,
   ];
 
     /* se abre el archivo y se lo guarda en la variable llamada $contenidoArchico (todavia no tiene ningun formato definido)*/
@@ -107,7 +129,7 @@ if($_POST){
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 		<?=!include_once('header.php'); ?>
   		<main role="main" class="inner cover text-center">
-  			<form role="form" action='register.php' method='POST' >
+  			<form role="form" action='register.php' method='POST' enctype="multipart/form-data">
   				<div class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
     					<h3>Registro</h3> <br>
     					<div class="row">
@@ -140,6 +162,19 @@ if($_POST){
     							</div>
     						</div>
     					</div>
+
+<!--////////////////////////////////////////////////////SUBIENDO IMAGEN////////////////////////////////////////////////////////-->
+              <div class="row">
+    						<div class="col-xs-6 col-sm-6 col-md-6">
+    							<div class="">
+                    <label for="">IMAGEN</label>
+    								<input type="file" name="img" id="img"   required>
+    							</div>
+    						</div>
+    					</div>
+
+
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
               <p> <?php echo $mostrarError ?> </p>
               <label><input type="checkbox" id="checkbox_tyc" value="TyC"> Aceptar Términos y Condiciones</label><br>
               <input type="submit" value="Registrarse" class="btn btn-secondary">

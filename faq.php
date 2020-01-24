@@ -3,9 +3,11 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="css/style.css">
 <?=!include_once('head.php'); ?>
 <body>
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<?=!include_once('barraDeBusqueda.php'); ?>
 		<?=!include_once('header.php'); ?>
 		<main role="main" class="inner cover text-center">
             <h3>COSTOS DE ENVÍO</h3>

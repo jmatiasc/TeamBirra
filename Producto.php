@@ -12,6 +12,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <?=!include_once('head.php'); ?>
+		<link rel="stylesheet" href="css/style.css">
 		<title>Responsive Web Design</title>
 	</head>
 	<body>
@@ -20,6 +21,8 @@ session_start();
 
 		<!-- cabecera -->
 		<header class="main-header">
+
+			<?=!include_once('barraDeBusqueda.php'); ?>
       <?=!include_once('header.php'); ?>
 		</header>
 

@@ -12,7 +12,7 @@
                   </form>
           </div>
           <div class="carrito">
-            <img style="" src="images/carrito.svg" alt="instagram"></img>
+            <img style="" width="100%"src="images/user.png" alt="instagram"></img>
           </div>
 
       </div>

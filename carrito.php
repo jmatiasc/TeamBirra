@@ -48,12 +48,14 @@ $productos = [
 		<link rel="stylesheet" href="css/styles3.css">
 		<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
     <?=!include_once('head.php'); ?>
 	</head>
 	<body>
 	<div class="container">
 		<!-- cabecera -->
 		<header class="main-header">
+
       <?=!include_once('header.php'); ?>
 		</header>
 		<section class="cuerpo">

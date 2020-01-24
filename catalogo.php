@@ -180,11 +180,14 @@ $filtros = [
 		<link rel="stylesheet" href="css/styles2.css">
 		<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<div class="container-fluid">
 			<!-- cabecera -->
 			<header class="main-header">
+
+						<?=!include_once('barraDeBusqueda.php'); ?>
 	      		<?=!include_once('header.php'); ?>
 			</header>
 			<section class="cuerpo" class="row">

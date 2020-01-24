@@ -4,10 +4,12 @@
 <head>
 	<title>Team Birra | Home</title>
 	<?=!include_once('head.php'); ?>
+	  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
+		<?=!include_once('barraDeBusqueda.php'); ?>
 		<?=!include_once('header.php'); ?>
 
 		<main role="main" class="inner cover text-center">

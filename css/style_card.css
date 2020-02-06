@@ -1,0 +1,187 @@
+.card_1{
+  display: block;
+  float: left;
+  margin: 1% 0 1% 3.6%;
+  width: 100%;
+  /*border:1px solid red;*/
+}
+
+.card_1 a{text-decoration: none;}
+
+.box_product{
+
+  /*margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baselin*/
+}
+
+.product{
+  	padding:6%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.product h3{
+
+  color:#FECE18;
+	font-size:0.9em;
+	text-transform:uppercase;
+	font-weight:500;
+}
+
+.marco{
+  color:
+  #555;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.contenedor_imagen img{
+  width: 100%;
+}
+
+
+.precio_producto{
+  color:#555;
+  font-size:1.2em;
+  font-weight:700;
+}
+
+.puntuacion{
+  overflow: hidden;
+	display: block;
+	/*background: #D5D5D5;*/
+	padding: 2.1% 1%;
+	font-size: 0.85em;
+	color: #000;
+	float: left;
+	width: 44.5%;
+}
+
+
+.puntuacion label :hover{
+  background: #D5D5D5;
+}
+/*--------------------------------------------------------COPIADO DE UNA PAGINA------------------*/
+.rating-input {
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.rating-star1 {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('../images/b_star.png') 0 -3px;
+
+    float: left;
+}
+.rating-star1:hover {
+     background: url('../images/b_star.png') 0 -20px;
+}
+
+
+
+/*-------------------------------------------------FIN DE COPIADO DE UNA PAGINA------------------*/
+
+.add_bag{
+
+  float:left;
+  width: 30.5%;
+  padding: 0.2% 0;
+  text-align: right;
+  align-items: right;
+}
+
+.add_bag a{
+  color: black;
+}
+
+.add_bag img{
+  width: 30%;
+}
+
+
+
+/*-----------------------------------------------------NAVAR FILTER-----------------------------------*/
+
+.navFilter{
+  background-color: #dde4f2;
+  /*------------------------*/
+  outline:none;
+  padding-top:2px;
+
+  /*------------------------*/
+  display: block;
+  float: left;
+  margin: 1% 3.5% 0% 0;
+/*  width: 19.2%;*/
+}
+
+
+.categoria{
+	display: block;
+}
+
+.categoria h4{
+  width: 100%;
+  color: #555;
+  font-size: 0.9em;
+  padding: 5px 10px;
+  background: #F7F7F7;
+  border: 1px solid #E6E6E6;
+  text-transform: uppercase;
+
+}
+
+.boxListCategory{
+  overflow: hidden;
+  padding: 0px;
+  width: 250px;
+  height: 150px;
+}
+
+
+.list{
+  overflow: hidden;
+  position: relative;
+}
+
+
+.listBox{
+  outline: none;
+}
+
+.ultimo .checkbox{
+  outline: none;
+  border: none;
+  margin-bottom: 4px;
+  padding-left: 27px;
+  font-size: 13px;
+  line-height: 27px;
+  color:#555555;
+  cursor: pointer;
+  text-transform: capitalize;
+  position: relative;
+  display: block;
+}
+
+.contenedor_boton_filter {
+  background-color: #FFD717;
+  border: none;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.contenedor_boton_filter a{text-decoration: none;
+color:black;}

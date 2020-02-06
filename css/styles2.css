@@ -39,6 +39,7 @@ h6{
 }
 
 /*----------------------------------------------ESTILO DE CATALOGO--------------------------------------------*/
+
 .cuerpo{
   overflow: hidden;
   font-family: Catamaran,sans-serif;
@@ -65,25 +66,27 @@ h6{
   overflow: hidden;
   padding: 1%;
   text-align: justify;
+
 }
-.product{
-  position:relative;
-  float: left;
-  border-style:solid;
-  border-color: #434343;
-  margin: 2px;
-  padding: 1%;
-  padding-bottom: 5%;
-  text-align: center;
+
+.catalogo-productos article{
+  
+  float: right;
+  background-image:  url('../images/logo1.png');
+  background-repeat: no-repeat; /* Do not repeat the image */
+   background-position: center;
 }
+
 .catalogo-productos :hover{
-  background: #434343;
+  background: #f1f2dd;
 }
 .product .foto{
   height: 30vh;
   margin-left: auto;
   margin-right: auto;
 }
+
+
 .product a, h3, p{
   margin-left: auto;
   margin-right: auto;

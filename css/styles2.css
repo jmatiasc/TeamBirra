@@ -1,3 +1,6 @@
+
+
+
 /*----------------------------------------------ESTILO DE PRODUCTO------------------------------*/
 .cuerpo {
   overflow: hidden;
@@ -20,9 +23,11 @@
   text-align: center;
 }
 
-.datos p{
-  text-align: left;
+.card_1 .datos p{
+  text-align: center;
 }
+
+
 
 .btn-comprar{
   float: right;
@@ -44,7 +49,7 @@ h6{
   overflow: hidden;
   font-family: Catamaran,sans-serif;
 }
-.navegador{
+/*.navegador{
   float: left;
   border-style: solid;
   border-color: #434343;
@@ -60,8 +65,9 @@ h6{
 }
 .menu li ul{
   list-style: none;
-}
+}*/
 .catalogo-productos{
+
   float: right;
   overflow: hidden;
   padding: 1%;
@@ -70,17 +76,19 @@ h6{
 }
 
 .catalogo-productos article{
-  
+
   float: right;
   background-image:  url('../images/logo1.png');
   background-repeat: no-repeat; /* Do not repeat the image */
    background-position: center;
+
 }
 
 .catalogo-productos :hover{
   background: #f1f2dd;
 }
 .product .foto{
+  border-color: black;
   height: 30vh;
   margin-left: auto;
   margin-right: auto;
@@ -90,7 +98,7 @@ h6{
 .product a, h3, p{
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: left;
 }
 h5{
   font-family: Catamaran,sans-serif;

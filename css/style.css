@@ -1,6 +1,7 @@
 /*------------------------BARRA DE BUSQUEDA ----------------------------------*/
 .barra{
-  background-color: rgba(200, 240, 5, 0.3);
+  max-height: 7vh;
+    background-color: rgb(255, 215, 23);
 }
 
 .container{
@@ -8,6 +9,7 @@
 }
 
 .logo{
+  max-height: 5vh;
   /*width: 15%;*/
   float: left;
 }
@@ -15,15 +17,17 @@
 
 
 .logo img{
+  max-height: 5vh;
   width: 100%;
 }
 
 .barraDeBusqueda{
-
+  max-height: 7vh;
   float: right;
 }
 
 .barraDeBusqueda img{
+  max-height: 5vh;
   width: 100%;
 }
 /*
@@ -35,6 +39,7 @@
 */
 
 .barraDeBusqueda button{
+  max-height: 5vh;
   position: absolute;
   width: 15%;
   right: -14px;
@@ -53,6 +58,8 @@
 }
 */
 .carrito{
+  max-height: 5vh;
+
 /*  width: 15%;*/
 
 /*  float: left;
@@ -60,12 +67,14 @@
 }
 
 .carrito img{
-  width: 100%;
+  max-height: 5vh;
+
 }
 
 
 @media query (min-width:320px)and (max-width:480) {
   .barraDeBusqueda img{
+    max-height: 5vh;
     width: 100%;
   }
 
@@ -80,3 +89,83 @@
 @media query (min-width:320px)and (max-width:480) {
 
 }*/
+/*-----------------------------barraDeBusqueda con ubicacion y telefono--------*/
+.contactBar{
+  border-bottom-style: solid;
+  border-bottom-color: rgba(215,214,211,0.3);
+  height: 3vh;
+}
+.contactBar  .elementos {
+
+  display: flex;
+  margin: 2px;
+  position: absolute;
+  width: 80%;
+  font-size: 0.8em;
+}
+
+.contactBar .red-social{
+  margin: 1px;
+  width: 20%;
+  float: right;
+}
+
+.contactBar .red-social img {
+    fill: #fece18;
+}
+
+/*----------------------------barra de filtro----------------------------------*/
+.filtro-de-pagina {
+
+	margin: 3px 0 12px;
+	overflow: hidden;
+	background: #F7F7F7;
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	width: 98.9%;
+}
+.filtro-de-pagina .orden-producto{
+  padding: 5px 8px 3px 8px;
+	float: left;
+	width: 40.5%;
+}
+.mfiltro-de-pagina .pagina {
+	padding: 5px 8px 3px 8px;
+	float: right;
+	width: 26.5%;
+}
+
+
+.filtro-de-pagina {
+  width:98.8%;
+}
+
+.filtro-de-pagina .orden-producto .orden-producto-por{
+  float: right;
+	color: #555;
+	font-size: 0.8125em;
+}
+
+.filtro-de-pagina .orden-producto .sorden-producto-por select{
+  float: right;
+  padding: 0;
+  margin: 0 0 1px;
+  vertical-align: middle;
+}
+
+.pagina .limite {
+	float: right;
+	color: #555;
+	font-size: 0.8125em;
+}
+
+.pagina .limite select {
+	padding: 0;
+	margin: 0 0 1px;
+	vertical-align: middle;
+}
+
+.pagina .limite label {
+	color:#555;
+	font-size:0.8125em;
+}

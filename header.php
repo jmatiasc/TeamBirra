@@ -1,8 +1,8 @@
 <header class="masthead mb-auto">
 	<div class="inner">
-		<nav class="nav nav-masthead navbar navbar-expand-lg navbar-dark">
+		<nav class="navbar navbar-expand-lg navbar-light ">
 			<div class="container">
-				<a class="navbar-brand" href="./index.php"><h3 class="masthead-brand"><img style="width: 100px;" src="images/logo21.png" alt="WELCOME"></img></h3></a>
+				<a class="navbar-brand" href="./index.php"><h3 class="masthead-brand"><img style="width: 100px;" src="images/logo1.png" alt="WELCOME"></img></h3></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>

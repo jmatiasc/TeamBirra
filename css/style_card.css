@@ -92,7 +92,54 @@
 
 
 /*-------------------------------------------------FIN DE COPIADO DE UNA PAGINA------------------*/
+/*-------------------------------------------------slide----------------------------------------*/
+.slidebar  {
+  margin: 1px;
+  height: 50vh;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: rgba(254, 206, 24, 0.5);
+  border-bottom-color: rgba(254, 206, 24, 0.5);
+}
 
+.slidebar {
+
+}
+
+.d-block{
+  height: 49vh;
+
+}
+
+.cover-container .container {
+  height: 50vh;
+
+}
+
+
+/*--------------------------------------------------------------------------------------------*/
+.container2{
+  padding: 5%;
+  padding-left: 20%;
+  padding-right: 20%;
+  overflow: hidden;
+  background-color: grey;
+}
+
+.container2 .imagenLogo{
+  float: left;
+}
+
+.container2 .texto{
+  padding: 5%;
+  font-size: 1em;
+  text-align: center;
+  float: right;
+  font-style: italic;
+  border-color: blue;
+}
+
+/*----------------------------------------------------------------------------------------------*/
 .add_bag{
 
   float:left;
@@ -115,10 +162,11 @@
 /*-----------------------------------------------------NAVAR FILTER-----------------------------------*/
 
 .navFilter{
+  width: 100%;
   background-color: #dde4f2;
   /*------------------------*/
   outline:none;
-  padding-top:2px;
+  padding-top:6px;
 
   /*------------------------*/
   display: block;
@@ -159,6 +207,13 @@
 
 .listBox{
   outline: none;
+}
+
+.listBox .ultimo label {
+
+}
+.listBox .ultimo label i{
+  margin-left: 4px;
 }
 
 .ultimo .checkbox{

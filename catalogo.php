@@ -184,21 +184,25 @@ $filtros = [
 		<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
 	<body>
+		<?=!include_once('barraDeBusqueda.php'); ?>
+		<?=!include_once('header.php'); ?>
+
+
 		<div class="container">
 			<!-- cabecera -->
 			<header class="main-header">
 
-						<?=!include_once('barraDeBusqueda.php'); ?>
-	      		<?=!include_once('header.php'); ?>
+
+
 			</header>
+
 
 			<div class="row">
 
 
 
-
-			<div class="col-12 col-md-4 col-lg-3" >
-				<div class="navFilter">
+			<div class="col-12 col-md-4 col-lg-3 " >
+				<div class="navFilter ">
 
 					<?php foreach ($filtros as $filtro => $value): ?>
 						<div class="container">
@@ -210,7 +214,7 @@ $filtros = [
 										<div class="listBox">
 													<div class="ultimo">
 														<?php foreach ($value as $val): ?>
-															<label class="checkbox"><input type="checkbox" name="checkbox" ><i></i><?php echo $val ?></label>
+															<label class="checkbox"><input type="checkbox" name="checkbox" ><i> </i><?php echo $val ?></label>
 															<?php endforeach ?>
 													</div>
 										</div>
@@ -235,10 +239,42 @@ $filtros = [
 					<div class="container">
 
 
+						<div class="filtro-de-pagina">
+										<div class="orden-producto">
+											<div class="orden-producto-por">
+											<label>Ordenar por:</label>
+												<select>
+																				<option value="">	Popularidad</option>
+																				<option value="">precio: menor a mayor</option>
+																				<option value="">precio : mayor a menor</option>
+												</select>
+										 </div>
+									 </div>
+
+									<div class="pagina">
+									 <div class="limite ">
+										<label>Mostrar:  </label>
+										<select>
+																		<option value="" selected="selected">
+														9                </option>
+																		<option value="">
+														15                </option>
+																		<option value="">
+														30                </option>
+													</select> por pagina
+										 </div>
+
+								<div class="clear"></div>
+							</div>
+								<div class="clear"></div>
+							 </div>
+
+
+
 					<section class="catalogo-productos ">
 						<?php foreach ($productos as $producto) : ?>
 
-							<article class="col-sm-12 col-md-11 col-lg-4" class="product"  >
+							<article class="col-6 col-sm-6 col-md-11 col-lg-4" class="product"  >
 								<div class="card_1">
 									<a href="#">
 											<div class="box_product">
@@ -249,7 +285,7 @@ $filtros = [
 																</div>
 														</div>
 														<h3><?php echo  $producto["nombre"] ?></h3>
-														<p>marca</p>
+														<p>Marca</p>
 														<div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
 												</div>
 											</div>

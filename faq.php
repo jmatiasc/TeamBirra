@@ -5,10 +5,12 @@ session_start();
 <html>
 <link rel="stylesheet" href="css/style.css">
 <?=!include_once('head.php'); ?>
+	<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
 <body>
-	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-		<?=!include_once('barraDeBusqueda.php'); ?>
-		<?=!include_once('header.php'); ?>
+	<?=!include_once('barraDeBusqueda.php'); ?>
+	<?=!include_once('header.php'); ?>
+	<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
 		<main role="main" class="inner cover text-center">
             <h3>COSTOS DE ENVÍO</h3>
 			<p>¿Cómo se calculan los costos de envío?<br>Enviamos tu pedido a la dirección que quierás. Hacemos envíos a todo el país.<br>A continuación podés ver el costo de envío correspondiente:</p>

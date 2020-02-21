@@ -124,10 +124,15 @@ if($_POST){
 <head>
 	<title>Team Birra | Registro</title>
 	<?=!include_once('head.php'); ?>
+  	<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
+
+  <?=!include_once('barraDeBusqueda.php'); ?>
+  <?=!include_once('header.php'); ?>
+  <div class="container">
+
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-		<?=!include_once('header.php'); ?>
   		<main role="main" class="inner cover text-center">
   			<form role="form" action='register.php' method='POST' enctype="multipart/form-data">
   				<div class="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
@@ -182,6 +187,8 @@ if($_POST){
   			</form>
   		</main>
   <?=!include_once('footer.php'); ?>
+  </div>
+
   </div>
 	<?=!include_once('scripts.php'); ?>
 </body>

@@ -91,9 +91,12 @@
 }*/
 /*-----------------------------barraDeBusqueda con ubicacion y telefono--------*/
 .contactBar{
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
   border-bottom-style: solid;
   border-bottom-color: rgba(215,214,211,0.3);
   height: 3vh;
+  z-index: 3;
 }
 .contactBar  .elementos {
 
@@ -105,12 +108,14 @@
 }
 
 .contactBar .red-social{
+  padding-left: 10%;
   margin: 1px;
   width: 20%;
   float: right;
 }
 
 .contactBar .red-social img {
+
     fill: #fece18;
 }
 
@@ -141,13 +146,13 @@
 }
 
 .filtro-de-pagina .orden-producto .orden-producto-por{
-  float: right;
+  /*float: right;*/
 	color: #555;
 	font-size: 0.8125em;
 }
 
 .filtro-de-pagina .orden-producto .sorden-producto-por select{
-  float: right;
+  /*float: right;*/
   padding: 0;
   margin: 0 0 1px;
   vertical-align: middle;

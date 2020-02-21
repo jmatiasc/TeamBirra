@@ -59,6 +59,16 @@ if($_POST){
         }
 } /*fin del if(!$_POST)*/
  ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    	<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+  <body>
+
+<div class="container">
 
 		<main role="main" class="inner cover text-center">
 			<section class="login-block">
@@ -102,3 +112,7 @@ if($_POST){
 				</div>
 			</section>
 		</main>
+
+  </div>
+  </body>
+</html>

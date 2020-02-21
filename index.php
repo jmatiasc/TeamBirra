@@ -64,10 +64,13 @@ $productos = [
 </head>
 <body>
 
+		<div class="cabecera">
 			<?=!include_once('barraDeBusqueda.php'); ?>
 			<?=!include_once('header.php'); ?>
 
 
+
+		</div>
 
 			<div class="slidebar">
 
@@ -80,13 +83,13 @@ $productos = [
 								</ol>
 								<div class="carousel-inner">
 									<div class="carousel-item active">
-										<img class="d-block w-100" src="images/fondo1.png" alt="First slide">
+										<img class="d-block w-100" src="images/beer1.png" alt="First slide">
 									</div>
 									<div class="carousel-item">
-										<img class="d-block w-100" src="images/fondo2.png" alt="Second slide">
+										<img class="d-block w-100" src="images/beer2.png" alt="Second slide">
 									</div>
 									<div class="carousel-item">
-										<img class="d-block w-100" src="images/fondo1.png" alt="Third slide">
+										<img class="d-block w-100" src="images/beer3.png" alt="Third slide">
 									</div>
 								</div>
 								<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -100,59 +103,7 @@ $productos = [
 							</div>
 			</div>
 
-	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-		<div class="container">
-				<div class="caja">
-				<section class="catalogo-productos ">
-					<?php foreach ($productos as $producto) : ?>
-
-						<article class="col-sm-3 col-md-3 col-lg-3" class="product"  >
-							<div class="card_1">
-								<a href="#">
-										<div class="box_product">
-											<div class="product">
-													<div class="marco div_imagen_proxima_animacion">
-															<div class="contenedor_imagen">
-																<img src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
-															</div>
-													</div>
-											</div>
-										</div>
-								</a>
-
-							</div>
-						</article>
-
-
-					<?php endforeach ?>
-				</section>
-
-
-				</div>
-			</div>
-
-
-		</main>
-
-
-					<div class="container2">
-									<div class="imagenLogo">
-
-									<img src="images/logo1.png" alt="">
-
-								</div>
-
-								<div class="texto">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntp </p>
-											<p> utlabore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
-											<p> laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit </p>
-											<p> involuptate velit esse cillum dolore eu fugiat nulla pariatur </p>
-							 	</div>
-					</div>
-
-
-	</div>
 		<?=!include_once('footer.php'); ?>
 	<?=!include_once('scripts.php'); ?>
 

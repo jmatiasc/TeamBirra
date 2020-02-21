@@ -76,16 +76,11 @@ h6{
 }
 
 .catalogo-productos article{
-
-  float: right;
-  background-image:  url('../images/logo1.png');
-  background-repeat: no-repeat; /* Do not repeat the image */
-   background-position: center;
-
+  float: left;
 }
 
 .catalogo-productos :hover{
-  background: #f1f2dd;
+  background: #dde4f2;
 }
 .product .foto{
   border-color: black;
@@ -102,4 +97,10 @@ h6{
 }
 h5{
   font-family: Catamaran,sans-serif;
+}
+
+
+.numeradorPaginas{
+  margin: 2%;
+  width: 100%;
 }

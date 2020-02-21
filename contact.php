@@ -7,12 +7,15 @@ session_start();
 	<link rel="stylesheet" href="css/style.css">
 	<title>Team Birra | Home</title>
 	<?=!include_once('head.php'); ?>
+		<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 <body>
+
+	<?=!include_once('barraDeBusqueda.php'); ?>
+	<?=!include_once('header.php'); ?>
+	<div class="container">
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-		<?=!include_once('barraDeBusqueda.php'); ?>
-		<?=!include_once('header.php'); ?>
 		<main role="main" class="inner cover text-center">
 			<h1 class="cover-heading">CONTACTO</h1>
 			<p class="lead">Por cualquier consulta escribinos!</p>
@@ -46,6 +49,7 @@ session_start();
             <h5>E-mail</h5>
             <p>contactos@cerveza.com</p>
 		</main>
+	</div>
 	</div>
 	<?=!include_once('scripts.php'); ?>
 </body>

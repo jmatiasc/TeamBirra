@@ -184,24 +184,26 @@ $filtros = [
 		<link href="css/style_card.css" rel="stylesheet" type="text/css" media="all" />
 	</head>
 	<body>
+
+		<!-- cabecera -->
+
 		<?=!include_once('barraDeBusqueda.php'); ?>
 		<?=!include_once('header.php'); ?>
 
 
+			<div class="banner-catalogo-principal">
+				<!--<img src="images/baner-principal.jpg" alt="">-->
+			</div>
+
 		<div class="container">
-			<!-- cabecera -->
-			<header class="main-header">
 
-
-
-			</header>
 
 
 			<div class="row">
 
 
 
-			<div class="col-12 col-md-4 col-lg-3 " >
+			<div class="col-12 col-md-4 col-lg-3 contenedor-navFilter" >
 				<div class="navFilter ">
 
 					<?php foreach ($filtros as $filtro => $value): ?>
@@ -228,6 +230,10 @@ $filtros = [
 					<a href="#">FILTRAR</a>
 					</div>
 
+			</div>
+
+			<div class="banner-catalogo-izquierda">
+				<img src="images/beer33.png" alt="">
 			</div>
 
 			</div>
@@ -274,9 +280,9 @@ $filtros = [
 					<section class="catalogo-productos ">
 						<?php foreach ($productos as $producto) : ?>
 
-							<article class="col-6 col-sm-6 col-md-11 col-lg-4" class="product"  >
+							<article class="col-6 col-sm-6 col-md-6 col-lg-4" class="product"  >
 								<div class="card_1">
-									<a href="#">
+									<a href="Producto2.php">
 											<div class="box_product">
 												<div class="product">
 														<div class="marco div_imagen_proxima_animacion">
@@ -284,7 +290,8 @@ $filtros = [
 																	<img src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
 																</div>
 														</div>
-														<h3><?php echo  $producto["nombre"] ?></h3>
+
+														<h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
 														<p>Marca</p>
 														<div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
 												</div>
@@ -310,8 +317,8 @@ $filtros = [
 												<!--FIN DE COPIADO SISTEMA DE RATING DE UNA PAGINA-->
 									</span>
 
-										<div class="add_bag"><a href="carrito.php">
-											<img src="images/paper-bag.svg" alt="">
+										<div class="add_bag"><a href="carrito2.php">
+											<img src="images/bag.png" alt="">
 										</a></div>
 								</div>
 							</article>
@@ -320,6 +327,24 @@ $filtros = [
 						<?php endforeach ?>
 					</section>
 						</div>
+
+					<div class="numeradorPaginas">
+							<nav aria-label="Page navigation example">
+							  <ul class="pagination justify-content-end">
+							    <li class="page-item disabled">
+							      <a class="page-link" href="#" tabindex="-1"><</a>
+							    </li>
+							    <li class="page-item"><a class="page-link" href="#">1</a></li>
+							    <li class="page-item"><a class="page-link" href="#">2</a></li>
+							    <li class="page-item"><a class="page-link" href="#">3</a></li>
+							    <li class="page-item">
+							      <a class="page-link" href="#">></a>
+							    </li>
+							  </ul>
+						</nav>
+				</div>
+
+
 				</div>
 
 				</div>

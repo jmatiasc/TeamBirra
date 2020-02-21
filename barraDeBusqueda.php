@@ -38,10 +38,7 @@
 </div>-->
 
 
-<div class="contactBar">
-
-
-
+<div class="contactBar ">
 
     <div class="elementos">
         <span class="ubicacion">

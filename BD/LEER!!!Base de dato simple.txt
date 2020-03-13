@@ -1,0 +1,1 @@
+Se creo una base de datos de nombre TeamBirra, con una sola tabla de Productos solo para probar el catalogo

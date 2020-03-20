@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,16 +13,19 @@
 |
 */
 
-Route::get('/catalogo/{filtro?}', 'productoControler@listadoDeProductos');
+
+
+Route::get('/productoUpdate', function () {
+    return view('productoUpdate');
+});
+
+Route::post('/productoUpdate','productoControler@agregarProducto');
+
+Route::get('/catalogo', 'productoControler@listadoDeProductos');
 
 
 
 Route::get('/producto/{id}', 'productoControler@unProducto');
-/*
-Route::get('/', function () {
-    return view('welcome');
-});*/
-
 
 
 Route::get('/carrito', function () {
@@ -37,13 +42,13 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-
+/*
 Route::get('/login', function () {
     return view('login');
-});
+});*/
 
 
-Route::get('/home', function () {
+Route::get('/index', function () {
     return view('index');
 });
 
@@ -54,7 +59,7 @@ Route::get('/perfil', function () {
 
 
 
-
+/*
 
 Route::get('/register', function () {
     return view('register');
@@ -63,4 +68,8 @@ Route::get('/register', function () {
 
 Route::post('/register', function () {
     return view('register');
-});
+});*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

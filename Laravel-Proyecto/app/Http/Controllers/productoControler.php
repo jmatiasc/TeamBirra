@@ -23,13 +23,21 @@ class productoControler extends Controller
         $color=$request->get('color');
 
 
+        $orden="asc";
+        $cant="9";
+        if(isset($_GET["orden"])){
+          $orden=$_GET["orden"];}
 
-          $productos=Producto::orderBy('nombre','DESC')
+        if(isset($_GET["cantidad"])){
+          $cant=$_GET["cantidad"];}
+
+
+          $productos=Producto::orderBy('precio',$orden)
           ->where("marca",'LIKE',"%$marca%")
           ->where("origen",'LIKE',"%$origen%")
           ->where("estilo",'LIKE',"%$estilo%")
           ->where("color",'LIKE',"%$color%")
-          ->paginate(9);
+          ->paginate($cant);
 
 
       $vac=compact("productos");
@@ -45,7 +53,26 @@ class productoControler extends Controller
         return view("producto ",$vac);
     }
 
+    public function agregarProducto(Request $request){
+      $productoNuevo= new Producto();
 
+      $ruta = $request->file("imagen")->store("public");
+      $nombreArchivo=basename($ruta);
+      $productoNuevo->imagen=$nombreArchivo;
+
+      $productoNuevo->nombre=$request["nombre"];
+      $productoNuevo->marca=$request["marca"];
+      $productoNuevo->color=$request["color"];
+      $productoNuevo->estilo=$request["estilo"];
+      $productoNuevo->origen=$request["origen"];
+      $productoNuevo->precio=$request["precio"];
+      $productoNuevo->enOferta=$request["enOferta"];
+      $productoNuevo->descripcion=$request["descripcion"];
+
+
+      $productoNuevo->save();
+        return redirect("/catalogo");
+    }
 
 
 }

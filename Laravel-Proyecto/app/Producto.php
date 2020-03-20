@@ -8,7 +8,7 @@ class Producto extends Model
 {
 
   public $table="productos";
-  public $primaryKey="idProducto";
+  public $primaryKey="id";
   public $timestamps=false;
 
 

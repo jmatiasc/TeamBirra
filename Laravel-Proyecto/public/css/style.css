@@ -1,5 +1,18 @@
 /*-----------------------------------------HEADER-------------------------------*/
 
+/*------------------------------------------Producto Update----------------------*/
+.contenedor-form-up{
+  overflow: hidden;
+}
+.form-group, .form-check{
+  float: right;
+}
+.en-oferta{
+  border-style: solid;
+  border-color: black;
+}
+
+
 /*-----------------------------barraDeBusqueda con ubicacion y telefono--------*/
 .contactBar{
 
@@ -7,7 +20,7 @@
   width: 100%;
   border-bottom-style: solid;
   border-bottom-color: rgba(215,214,211,0.3);
-  height: 5vh;
+  height: 6vh;
   z-index: 3;
 }
 .contactBar  .elementos {
@@ -126,17 +139,22 @@ h5{
   width: 98.9%;
 }
 .filtro-de-pagina .orden-producto{
+  padding-left: 1%;
   padding: 5px 8px 3px 8px;
   float: left;
-  width: 40.5%;
+
 }
-.mfiltro-de-pagina .pagina {
+.filtro-de-pagina .pagina {
   padding: 5px 8px 3px 8px;
   float: right;
-  width: 26.5%;
+
 }
 
+.filtro-de-pagina .mostrar{
+  float: left;
+  padding-left: 12%;
 
+}
 .filtro-de-pagina {
   width:98.8%;
 }
@@ -146,14 +164,14 @@ h5{
   font-size: 0.8125em;
 }
 
-.filtro-de-pagina .orden-producto .sorden-producto-por select{
+.filtro-de-pagina .orden-producto .orden-producto-por select{
   padding: 0;
   margin: 0 0 1px;
   vertical-align: middle;
 }
 
 .pagina .limite {
-  float: right;
+  float: left;
   color: #555;
   font-size: 0.8125em;
 }
@@ -382,33 +400,49 @@ h5{
     }
 
     .panel{
+        overflow: hidden;
         background-color: white;
+          font-family: Open Sans Condensed;
+          float: right;
     }
 
-    .contenedor .panelCentral a{
+  .panelCentral a{
+
+    font-family: Open Sans Condensed;
       font-size: 2em;
       color: black;
     }
 
     .contenedor .PanelIzquierdo a{
+
       color: rgb(125, 125, 125);
     }
 
-    .contenedor .panelCentral a:hover{
+    .panelCentral a:hover{
       color: #FECE18;
     }
 
     .logo{
       width: 100%;
+      padding-left:5%;
+      margin-right: 25%;
     }
 
 
     .panelCentral{
-      padding-left: 35%;
-      padding-right: 35%;
-    }
+      margin-right: 5%;
+      float: right;
 
+    }
+.total-bar{
+  width: 100%;
+}
     .PanelIzquierdo {
+      padding-top: 1vh;
+
+          font-family: Open Sans Condensed;
+                font-size: 1em;
+      width: 100%;
       display: flex;
       float: right;
     }
@@ -419,14 +453,20 @@ h5{
 
 
     .log-reg,.carrito,.searchBar{
+
+      display: flex;
       float: left;
       padding: 1px;
     }
 
+
+
     .log-reg img,
     .carrito img {
+
       margin-right:6px;
     }
+
 
 
     /* CODIGO DE SEARCH NAVAR PARA FUTURAS MEJORAS
@@ -828,6 +868,6 @@ padding-left:  10%;
 
 
 .containerRegister{
-  height: 85vh;
+  height: 60vh;
 }
   /*-------------------------------------------------------------------------------------------------------*/

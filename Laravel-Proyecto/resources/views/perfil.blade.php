@@ -9,11 +9,11 @@
   	<title>Team Birra | Perfil</title>
   </head>
   <body>
-
+@section('content')
     @extends('footer')
 		@extends('perfilContext');
-			@extends('header')
-		@extends('socialBar') ?>
+  @endsection
+  @extends('layouts.app')
 		</body>
 
   </body>

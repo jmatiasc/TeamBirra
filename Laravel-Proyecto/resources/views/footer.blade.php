@@ -50,5 +50,5 @@
 
 </div>
   </div>
-<?@extends('scripts'); ?>
+
 </footer>

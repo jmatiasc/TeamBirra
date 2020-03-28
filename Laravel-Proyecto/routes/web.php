@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/productoUpdate', function () {
-    return view('productoUpdate');
-});
 
+Route::get('/productoUpdate','productoControler@formAgregarProductos');
 Route::post('/productoUpdate','productoControler@agregarProducto');
 
 Route::get('/catalogo', 'productoControler@listadoDeProductos');
@@ -28,9 +26,8 @@ Route::get('/catalogo', 'productoControler@listadoDeProductos');
 Route::get('/producto/{id}', 'productoControler@unProducto');
 
 
-Route::get('/carrito', function () {
-    return view('carrito');
-});
+Route::get('/carrito/{idUser?}/{idProducto?}', 'productoControler@agregarCarrito');
+Route::get('/eliminar/{idUser}/{idProducto}', 'productoControler@eliminarDeCarrito');
 
 
 Route::get('/contact', function () {
@@ -72,4 +69,4 @@ Route::post('/register', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('index');

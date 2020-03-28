@@ -1,3 +1,8 @@
+
+
+
+
+
 @extends('footer')
 @extends('layouts.app')
 
@@ -23,10 +28,25 @@
       <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
           <label for="exampleFormControlInput1">Marca</label>
-          <input type="text" name="marca" id="marca" class="form-control input-sm" placeholder="Marca" value="" required>
-        </div>
-      </div>
+          <select name="marca">
+            @foreach ($marcas as $marca )
+            <option value="<?php echo $marca["id"]?>" > <?php echo $marca["nombre"]?></option>
+            @endforeach
+            <option value="otro" >
+               Otros...
+            </option>
+            </select>
+
+                  <input type="text" name="marcaOtro" id="marcaOtro" class="form-control input-sm" placeholder="marcaOtro" value="" >
+
+          </div>
+
+
+
+
     </div>
+    </div>
+
 
     <div class="row">
               <!-- precio del producto-->
@@ -37,51 +57,76 @@
         </div>
       </div>
             <!-- color del producto-->
-      <div class="col-xs-6 col-sm-6 col-md-6">
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Color</label>
-          <input type="text" name="color" id="color" class="form-control input-sm" placeholder="color" value="" required>
-        </div>
-      </div>
-    </div>
 
+            <div class="col-xs-6 col-sm-6 col-md-6">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Color</label>
+                <select name="color">
+                  @foreach ($colores as $color )
+                  <option value="<?php echo $color["id"]?>" > <?php echo $color["nombre"]?></option>
+                  @endforeach
+                  <option value="otro" >
+                     Otros...
+                  </option>
+                  </select>
+
+                        <input type="text" name="colorOtro" id="colorOtro" class="form-control input-sm" placeholder="colorOtro" value="" >
+                </div>
+            </div>
+
+        </div>
 
         <div class="row">
               <!-- estilo del producto-->
-          <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Estilo</label>
-              <input type="text" name="estilo" id="estilo" class="form-control input-sm" placeholder="estilo" value="" required>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Estilo</label>
+                  <select name="estilo">
+                    @foreach ($estilos as $estilo )
+                    <option value="<?php echo $estilo["id"]?>" > <?php echo $estilo["nombre"]?></option>
+                    @endforeach
+                    <option value="otro" >
+                       Otros...
+                    </option>
+                    </select>
+
+                          <input type="text" name="estiloOtro" id="estiloOtro" class="form-control input-sm" placeholder="estiloOtro" value="" >
+                  </div>
+
             </div>
-          </div>
               <!-- Origen del producto-->
-          <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Origen</label>
-              <input type="text" name="origen" id="origen" class="form-control input-sm" placeholder="origen" value="" required>
-            </div>
-          </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Origen</label>
+                  <select name="origen">
+                    @foreach ($origenes as $origen)
+                    <option value="<?php echo $origen["id"]?>" > <?php echo $origen["nombre"]?></option>
+                    @endforeach
+                    <option value="otro" >
+                       Otros...
+                    </option>
+                    </select>
+                          <input type="text" name="origenOtro" id="colorOtro" class="form-control input-sm" placeholder="origenOtro" value="" >
+                  </div>
+              </div>
         </div>
 
-
-
+      <div class="row">
     <!-- poner en oferta el producto-->
-    <div class=" en-oferta col-xs-12 col-sm-12 col-md-12">
-        <label for="exampleFormControlInput1">Poner en oferta</label>
-        <div class="form-check">
-            <input  type="radio" name="enOferta" id="gridRadios" value="TRUE" checked>
-          <label class="form-check-label" for="gridRadios1">
-            si
-          </label>
-        </div>
-        <div class="form-check">
-          <input  type="radio" name="enOferta" id="gridRadios" value="FALSE">
-          <label class="form-check-label" for="gridRadios2">
-            no
-          </label>
-        </div>
+    <div class=" en-oferta col-xs-6 col-sm-6 col-md-6">
+
       </div>
 
+      <div class=" col-xs-6 col-sm-6 col-md-6">
+          <label for="exampleFormControlInput1">cantidad En stock</label>
+          <select name="cantidad">
+
+            @for ($i = 0; $i < 100; $i++)
+              <option value="<?php echo $i?>" > <?php echo $i?></option>
+            @endfor
+            </select>
+        </div>
+  </div>
       <div class=" col-12 col-md-6 col-lg-6">
         <label for="">Subir </label>
         <input type="file" name="imagen" >
@@ -98,6 +143,9 @@
       <input type="submit" name="Agregar producto" value="Agregar product">
     </div>
 </div>
+
+
+
 
   </form>
     </main>

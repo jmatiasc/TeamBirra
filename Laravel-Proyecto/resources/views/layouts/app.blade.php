@@ -127,10 +127,15 @@
 
                         <div class="carrito ">
                           <li class="nav-item ">
-                            <a class="nav-link" href="carrito"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>bag<span class="sr-only">(current)</span></a>
+                            @guest
+                            @if (Route::has('register'))
+                                <a class="nav-link" href="/carrito/"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>bag<span class="sr-only">(current)</span></a>
+                              @endif
+                              @else
+                            <a class="nav-link" href="/carrito/{{Auth::user()->id}}"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>bag<span class="sr-only">(current)</span></a>
                           </li>
                         </div>
-
+                      @endguest
 
                     </ul>
 

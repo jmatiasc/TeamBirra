@@ -1,7 +1,6 @@
 <?php
 
-
-$productos = [
+/*$productos = [
 
 	0 => [
 		"nombre" =>"Ipa Andina",
@@ -39,7 +38,7 @@ $productos = [
 		"Estilo" => "Blonde",
 		"Origen" => "Brasil"
 	]
-]; ?>
+]; */?>
 
 	@extends('footer')
 @extends('layouts.app')
@@ -61,7 +60,7 @@ $productos = [
         <div class="eliminar-articulo col-12 col-sm-12 col-md-12 col-lg-12 ">
           <div class=" col-11 col-sm-11 col-md-11 col-lg-11" ></div>
           <div class="eliminar-imagen col-1 col-sm-1 col-md-1 col-lg-1 ">
-            <a href="#">
+            <a href="/eliminar/{{$user->id}}/{{$producto->id}}">
               <img src="/images/eliminar.svg" alt="">
             </a>
           </div>
@@ -70,7 +69,7 @@ $productos = [
 
         <!-- imagen del producto -->
         <div class="imagen-articulo col-12 col-sm-2 col-md-2 col-lg-2">
-          <img src="<?php echo $producto["imagen"] ?>" alt="pdto 01">
+          <img src="/storage/<?php echo $producto["imagen"]; ?>" alt=" ">
         </div>
 
         <!-- descripcion del producto -->
@@ -80,7 +79,7 @@ $productos = [
           </div>
           <!-- marca del producto -->
           <div class="marca-articulo">
-            <h5><?php echo $producto["marca"]; ?></h5>
+            <h5>{{$producto->getMarca->nombre}}</h5>
           </div>
 
         </div>
@@ -107,7 +106,7 @@ $productos = [
 
   <!-- vaciar carrito -->
   <div class="vaciar-carrito col-6 col-sm-6 col-md-6 col-lg-6">
-    <a href="#">
+    <a href="/carrito">
       Vaciar carrito
     </a>
   </div>
@@ -120,7 +119,7 @@ $productos = [
 
   <!-- realizar compra -->
   <div class="boton-realizar-compra col-12 col-sm-12 col-md-12 col-lg-12">
-    <a href="catalogo.blade.php">
+    <a href="/catalogo">
       <div class="click">
         COMPRAR
       </div>

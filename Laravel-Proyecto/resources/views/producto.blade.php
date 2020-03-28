@@ -13,8 +13,10 @@
                   $img=$producto["imagen"];}
               else {
                 $img="images/NOT-IMG.jpg";
-              }?>
-        <img src="/<?php echo $img ?>" alt="<?php echo $img ?> ">
+              }
+
+              ?>
+        <img src="/storage/{{$producto->imagen}}" alt="<?php echo $img ?> ">
     </div>
 
 
@@ -25,7 +27,7 @@
       </div>
 
       <div class="marca">
-        <h5><?php echo $producto["marca"]; ?></h5>
+        <h5>{{$producto->getMarca->nombre}}</h5>
       </div>
 
       <div class="estrellas">
@@ -60,7 +62,7 @@
             <h6>Color:</h6>
           </div>
           <div class="color col-8 col-sm-8 col-md-8 col-lg-8">
-            <h6><?php echo $producto["color"]; ?></h6>
+            <h6>{{$producto->getColor->nombre}}</h6>
           </div>
 
           <div class="EstiloName col-4 col-sm-4 col-md-4 col-lg-4">
@@ -68,14 +70,14 @@
 
           </div>
           <div class="Estilo col-8 col-sm-8 col-md-8 col-lg-8">
-            <h6><?php echo $producto["estilo"]; ?></h6>
+            <h6>{{$producto->getEstilo->nombre}}</h6>
           </div>
 
           <div class="OrigenName col-4 col-sm-4 col-md-4 col-lg-4">
             <h6>Origen:</h6>
           </div>
           <div class="Origen col-8 col-sm-8 col-md-8 col-lg-8">
-            <h6><?php echo $producto["origen"]; ?></h6>
+            <h6>{{$producto->getOrigen->nombre}}</h6>
           </div>
 
 
@@ -98,7 +100,12 @@
       </div>
 
       <div class="boton-comprar">
-        <a href="/carrito">COMPRAR</a>
+        @if (Auth::user())
+            <a href="/carrito/{{Auth::user()->id}}/{{$producto["id"]}}">COMPRAR</a>
+            @else
+              <a href="/carrito">COMPRAR</a>
+        @endif
+
       </div>
 
     </div>

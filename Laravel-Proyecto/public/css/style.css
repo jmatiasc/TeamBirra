@@ -130,7 +130,8 @@ h5{
 
 /*----------------------------barra de filtro----------------------------------*/
 .filtro-de-pagina {
-
+  font-family: Open Sans Condensed;
+  font-size: 1.2em;
   margin: 3px 0 12px;
   overflow: hidden;
   background: #F7F7F7;
@@ -226,11 +227,11 @@ h5{
   }
 
   .marco{
-    color:
-    #555;
+    color:#555;
     font-size: 0.9em;
     text-transform: uppercase;
     font-weight: 500;
+    height: 46vh;
   }
 
   .contenedor_imagen img{
@@ -303,15 +304,10 @@ h5{
 
   /*-----------------------------------------------------NAVAR FILTER-----------------------------------*/
 
-  .contenedor-navFilter{
 
-    width: auto;
-  }
   .navFilter{
     width: 100%;
-    background-color: #dde4f2;
-    outline:none;
-    padding-top:6px;
+
     display: block;
     float: left;
 
@@ -319,57 +315,41 @@ h5{
 
 
   .categoria{
+
+    font-family: Open Sans Condensed;
     display: block;
   }
+.box-categoria{
 
-  .categoria h4{
+  background-color: #F7F7F7;
+  margin: 1%;
+}
+  .categoria h4 button{
+    font-size: 1em;
+    text-align:left;
     width: 100%;
     color: #555;
-    font-size: 0.9em;
-    padding: 5px 10px;
-    background: #F7F7F7;
-    border: 1px solid #E6E6E6;
     text-transform: uppercase;
 
   }
 
-  .boxListCategory{
-    overflow: hidden;
-    padding: 0px;
-    width: 250px;
-    height: 150px;
-  }
-
-
-  .list{
-    overflow: hidden;
-    position: relative;
-  }
-
-
-  .listBox{
-    outline: none;
-  }
-
-  .listBox .ultimo label {
-
-  }
-  .listBox .ultimo label i{
-    margin-left: 4px;
+  .categoria h4 button:hover{
+        text-decoration: none;
+        color: #fece18;
   }
 
   .ultimo .checkbox{
-    outline: none;
-    border: none;
-    margin-bottom: 4px;
-    padding-left: 27px;
-    font-size: 13px;
-    line-height: 27px;
-    color:#555555;
+    font-family: Open Sans Condensed;
+    padding-left: 15%;
+    padding-bottom: 3%
+    font-size: 0.9em;
     cursor: pointer;
-    text-transform: capitalize;
-    position: relative;
     display: block;
+  }
+  .boton-categorias{
+    padding: 0;
+    background-color: #dde4f2;
+
   }
 
   .contenedor_boton_filter {
@@ -400,7 +380,7 @@ h5{
     }
 
     .panel{
-        overflow: hidden;
+
         background-color: white;
           font-family: Open Sans Condensed;
           float: right;
@@ -425,7 +405,7 @@ h5{
     .logo{
       width: 100%;
       padding-left:5%;
-      margin-right: 25%;
+      margin-right: 30%;
     }
 
 

@@ -11,40 +11,14 @@
 
 
  $filtros = [
- 	"marca" => [ "Andes",
- 	'Brahma',
- 	"Budweiser",
- 	"Estrella Galicia",
- 	"Hoegaarden",
- 	"Peñon del Aguila",
- 	"Stella Artois",
- 	"Crimen Beer"
- ],
- "origen" => [ "Alemania",
- "Argentina",
- "Belgica",
- "España",
- "Holanda",
- "Italia",
- "Perú"
- ],
- "estilo" => [ "Golden Ale",
- "Red Lager",
- "Pale Lager",
- "Scotch Ale",
- "Amber Lager",
- "American Ipa",
- "Pilsen"
- ],
- "color" => [ "Ambar",
- "Dorado",
- "Negra",
- "Oscuro",
- "Rubí",
- "Roja"
- ]
- ];
+ 	"marca" => $marcas  ,
+ "origen" => $origenes,
+ "estilo" => $estilos,
+ "color" => $colores
+];
  ?>
+
+
  @extends('footer')
  @extends('layouts.app')
 
@@ -65,36 +39,44 @@
 
       <!-- Barra de filtrado para busqueda -->
       <div class="navFilter ">
+
         <form class="" action="/catalogo" method="get">
 
+          <?php foreach ($filtros as $filtro => $value): ?>
+            <div class="accordion  box-categoria" id="accordionExample">
 
-                <?php foreach ($filtros as $filtro => $value): ?>
-                  <div class="container">
 
-                    <div class="categoria">
-                      <h4> <?php echo $filtro ?></h4>
-                      <div class="boxListCategory">
-                        <div class="list">
-                          <div class="listBox">
-                            <div class="ultimo">
-                              <?php foreach ($value as $val): ?>
-                                <label class="checkbox">
-                                  <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val ?>"><i> </i>
-                                  <?php echo $val ?>
-                                </label>
-                              <?php endforeach ?>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
 
-                  </div>
-                </li>	<?php endforeach ?>
-                <div class="contenedor_boton_filter">
-                <!--   <a href="#">FILTRAR</a>-->
-                    <input type="submit" value="FILTRAR" class="contenedor_boton_filter">
+              <div class=" categoria" id="headingOne">
+                <h4 class="mb-0">
+                  <button class="btn btn-link boton-categorias" type="button" data-toggle="collapse" data-target="#<?php echo $filtro ?>" aria-expanded="false" aria-controls="collapseOne">
+                    <span class="badge pull-rigth"> <img style="width: 10px;" src="/images/down.svg" alt=""> </span>
+                    <?php echo $filtro ?>
+                  </button>
+                </h4>
                 </div>
+
+                      <div class="ultimo">
+                            <?php foreach ($value as $val): ?>
+                            <div id="<?php echo $filtro ?>" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
+                              <div class="">
+                                <div class="checkbox">
+
+                                  <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                                  <?php echo $val["nombre"] ?>
+
+                                </div>
+                              </div>
+                            </div>
+                            <?php endforeach ?>
+                    </div>
+              </div>
+
+
+          </li>	<?php endforeach ?>
+
+                    <input type="submit" value="FILTRAR" class="contenedor_boton_filter">
+
       </form>
       </div>
 
@@ -164,6 +146,8 @@
 
                   <?php foreach ($productos as $producto) : ?>
 
+
+
                     <!-- producto -->
                     <article class="product col-6 col-sm-6 col-md-6 col-lg-4 " >
 
@@ -175,18 +159,24 @@
                               <div class="marco div_imagen_proxima_animacion">
                                 <div class="contenedor_imagen">
                                   <?php
-                                          /*$file=$producto["imagen"];
+                                        /*  $file="/storage/{{$producto->imagen}}";
                                           if(is_file($file )){
                                               $img=$producto["imagen"];}
                                           else {
                                             $img="images/NOT-IMG.jpg";
-                                          }*/?>
+                                          }
+                                          {{$img}}
+                                          */
+
+
+                                          ?>
                                   <img src="/storage/{{$producto->imagen}}" alt=" ">
                                 </div>
                               </div>
 
                               <h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
-                              <p>Marca</p>
+                              <p>
+                                      {{$producto->getMarca->nombre}}</p>
                               <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
                             </div>
                           </div>
@@ -211,9 +201,18 @@
                         </span>
 
                         <!-- añadir al carrito -->
-                        <div class="add_bag"><a href="carrito">
+                        <div class="add_bag">
+                          @guest
+                          @if (Route::has('register'))
+                            <a href="/carrito/">  <img src="images/bag.png" alt="">
+                            </a>
+                          @endif
+                          @else
+                          <a href="/carrito/{{Auth::user()->id}}/{{$producto["id"]}}">
                           <img src="images/bag.png" alt="">
-                        </a></div>
+                        </a>
+                          @endguest
+                      </div>
                       </div>
                     </article>
 
@@ -230,7 +229,9 @@
 
             </div>
 
+              
               {{$productos->links()}}
+
 
           </div>
 

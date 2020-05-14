@@ -378,7 +378,7 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
       public function presentacion(){
         $productosTotal=Producto::all()->chunk(4);
-        $productosTotal2=Producto::all()->where("precio",">=",90)->chunk(4);
+        $productosTotal2=Producto::all()->where("precio","<",170)->chunk(4);
 
         $productos=[0=> $productosTotal->first(),
                     1=> $productosTotal2->first()

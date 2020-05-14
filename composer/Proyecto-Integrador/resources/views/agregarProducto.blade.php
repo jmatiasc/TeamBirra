@@ -23,8 +23,16 @@
 
 <div class="container">
 
-  <form role="form" action='/agregarProducto' method='post' enctype="multipart/form-data">
+  <div class="titulo-perfil col-12 col-sm-12 col-md-12 col-lg-9">
+    <h3>Agregar producto</h3>
+
+  </div>
+<div class=" card-perfil shadow p-3 mb-5 bg-white rounded col-12 col-md-9 col-lg-9">
+
+
+    <form role="form" action='/agregarProducto' method='post' enctype="multipart/form-data">
       {{ csrf_field()}}
+
     <div class="form-group">
     <label for="exampleFormControlFile1">Imagen</label>
     <input type="file" name="imagen" class="form-control-file" id="exampleFormControlFile1">
@@ -38,20 +46,27 @@
       </div>
 
       <div class="form-group col-md-3">
+        <div class="">
         <label for="inputEmail4">Precio</label>
-        <input type="text"name="precio" id="precio" value="{{$precio}}" class="form-control" id="inputEmail4">
+        </div>
+      <div class="medidas">$</div>
+      <input type="text"name="precio" id="precio" value="{{$precio}}" class="form-control ing-rigth" id="inputEmail4">
         {{$errors->first("precio")}}
       </div>
 
       <div class="form-group col-md-3">
+        <div class="">
         <label for="inputEmail4">Volumen</label>
-        <input type="text"name="volumen" id="volumen" value="{{$volumen}}" class="form-control" id="inputEmail4">
+        </div>
+        <input type="text"name="volumen" id="volumen" value="{{$volumen}}" class="form-control ing-left" id="inputEmail4"><div class="medidas">ml</div>
         {{$errors->first("volumen")}}
       </div>
 
       <div class="form-group col-md-3">
+        <div class="">
         <label for="inputEmail4">graduacion alcoholica</label>
-        <input type="text"name="graduacionAlcoholica" value="{{$graduacionAlcoholica}}" id="graduacionAlcoholica" class="form-control" id="inputEmail4">
+        </div>
+        <input type="text"name="graduacionAlcoholica" value="{{$graduacionAlcoholica}}" id="graduacionAlcoholica" class="form-control ing-left" id="inputEmail4"><div class="medidas">%</div>
         {{$errors->first("graduacionAlcoholica")}}
       </div>
 
@@ -112,8 +127,12 @@
       </div>
 
     </div>
-    <button type="submit" class="btn btn-primary">Agregar</button>
+    <button type="submit" class="btn btn-warning">Agregar</button>
   </form>
+</div>
 
+<div class="">
+      <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+</div>
 </div>
 @endsection

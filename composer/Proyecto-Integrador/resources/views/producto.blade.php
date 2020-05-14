@@ -51,8 +51,8 @@
 
         <span class=" col-12 col-sm-6 col-md-6 col-lg-6">
           <form role="form" action='/PuntuarProducto/<?php echo $producto["id"]?>' method='get' enctype="multipart/form-data">
-
             <div class=" puntuar ">
+
             <select id="inputState" name="puntos" class="form-control">
               @for ($i = 0; $i <= 5; $i++)
                 <option value="<?php echo $i?>" > <?php echo $i?></option>
@@ -60,7 +60,7 @@
             </select>
             </div>
             <div class="puntuar btn-punt">
-              <button type="submit" class="btn-sm btn-primary">+</button>
+              <button type="submit" class="btn-sm btn-warning"><strong>+</strong></button>
             </div>
 
           </form>
@@ -74,7 +74,7 @@
       <div class="descripcion">
         <div class="texto-descriptivo">
 
-          <h5><?php echo $producto["informacion"]; ?></h5>
+          <h5 ><?php echo $producto["informacion"]; ?></h5>
 
         </div>
 

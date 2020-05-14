@@ -1,17 +1,71 @@
 /*----------------------------------------INDEX------------------------------------*/
+.panel-de-muestra{
+  height: 90vh;
+  font-family: 'Roboto', sans-serif;
 
-.panel-novedades {
-  width:100%;
-  height: 45vh;
-  background-position:center;
-  margin-top: 1%;
-  margin-bottom: 1%;
 }
 
-.panel-novedades img{
+.muestrario-p{
+  height:90vh;
+}
+
+.div-panel-muestra,.div-panel-muestra-principal{
+
   width: 100%;
   height: 100%;
 }
+
+.div-panel-muestra img{
+  padding: 0;
+  z-index: 1;
+  position: absolute;
+  animation: mover 1s 1 ;
+}
+
+@keyframes mover {
+  0%{padding:90%;}
+
+  100%{padding: 0%;}
+
+}
+
+.contenido-muestra{
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 10%;
+}
+
+
+.texto-panel-muestra{
+  margin-top: 0%;
+  animation: cambiar 1s 1;
+  font-size: 5em;
+
+}
+
+@keyframes cambiar {
+
+  0%{margin-top: 170%;}
+  100%{margin-top:0%;}
+}
+
+.boton-muestra{
+  font-size: 2em;
+
+ }
+/*
+<img src="/images/leffe-gold-belg.png"  class="d-block w-100" alt="...">
+
+<img src="/images/lowen-gold.png" class="d-block w-100" alt="...">
+
+<img src="/images/haeg-1bronze.png" class="d-block w-100" alt="...">
+
+style="background-color:#fece18"
+
+
 
 /*-----------------------------------------HEADER-------------------------------*/
 
@@ -19,11 +73,7 @@
 .contenedor-form-up{
   overflow: hidden;
 }
-/*
-.form-group, .form-check{
-  float: right;
-}
-*/
+
 .en-oferta{
   border-style: solid;
   border-color: black;
@@ -101,7 +151,7 @@
 
 /*----------------------------barra de filtro----------------------------------*/
 .filtro-de-pagina {
-  font-family: Open Sans Condensed;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.2em;
   margin: 3px 0 12px;
   overflow: hidden;
@@ -179,6 +229,16 @@
     background-repeat: no-repeat; /* Do not repeat the image */
     background-position:center;
   }
+
+
+  .marco:hover{
+    background-image: url('../images/circulo.png');
+    background-size:contain;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position:center;
+  }
+
+
   .box_product p{
     color:black;
   }
@@ -269,7 +329,7 @@
   }
 
   h5{
-    font-family: Catamaran,sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 
 
@@ -299,7 +359,9 @@
   .rating-star1:hover {
     background: url('../images/b_star.png') -6px -20px;
   }
-
+  .rating-star2:hover {
+    background: url('../images/b_star.png') -6px -3px;
+  }
   .rating-star2 {
 
     display: block;
@@ -345,7 +407,7 @@
 
   .categoria{
 
-    font-family: Open Sans Condensed;
+    font-family: 'Roboto', sans-serif;
     display: block;
   }
 
@@ -369,7 +431,7 @@
   }
 
   .ultimo .checkbox{
-    font-family: Open Sans Condensed;
+    font-family: 'Roboto', sans-serif;
     padding-left: 15%;
     padding-bottom: 3%
     font-size: 0.9em;
@@ -383,7 +445,7 @@
   }
 
   .contenedor_boton_filter {
-    background-color: #FFD717;
+    background-color: #FECE18;
     border: none;
     width: 100%;
     text-decoration: none;
@@ -404,22 +466,22 @@
     .contenedor{
       z-index: 3;
       height: 10vh;
-      font-family: Open Sans Condensed;
+      font-family: 'Roboto', sans-serif;
       list-style: none;
       color: back;
-
+      position: relative;
     }
 
     .panel{
 
         background-color: white;
-          font-family: Open Sans Condensed;
+        font-family: 'Roboto', sans-serif;
           float: right;
     }
 
   .panelCentral a{
 
-    font-family: Open Sans Condensed;
+    font-family: 'Roboto', sans-serif;
       font-size: 2em;
       color: black;
     }
@@ -433,12 +495,21 @@
       color: #FECE18;
     }
 
-    .logo{
+    .espacio{
       width: 100%;
       padding-left:5%;
       margin-right: 30%;
     }
 
+    .logo-pag{
+      position: absolute;
+      margin-left: 7%;
+    }
+
+    .logo-pag img{
+      width: 120%;
+
+    }
 
     .panelCentral{
       margin-right: 5%;
@@ -449,11 +520,15 @@
 .total-bar{
   width: 100%;
 }
+
+.total-bar :hover{
+  color: #fece18;
+}
     .PanelIzquierdo {
       padding-top: 1vh;
 
-          font-family: Open Sans Condensed;
-                font-size: 1em;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1em;
       width: 100%;
       display: flex;
       float: right;
@@ -530,6 +605,9 @@
   float: right;
 }
 
+.texto-descriptivo{
+  color:grey;
+}
 .descripcion-producto .estrellas{
   width: 100%;
   height: 10vh;
@@ -555,6 +633,7 @@
 }
 
 .detalles{
+    color:grey;
   margin-top: 15%;
 }
 .detalles h6
@@ -611,7 +690,7 @@
   /*-----------------------------------------CARRITO---------------------------------*/
   .titulo-carrito{
     margin: 5%;
-    font-family: Open Sans Condensed;
+    font-family: 'Roboto', sans-serif;
   }
 
   .articulo{
@@ -767,8 +846,8 @@
 /*-----------------------------------------------------------PERFIL----------------------------------------*/
 .contenedor-perfil{
   overflow: hidden;
-  height: 65vh;
-  font-family: Open Sans Condensed;
+
+  font-family: 'Roboto', sans-serif;
 }
 
 .card-perfil{
@@ -778,7 +857,12 @@
   float: left;
 
 }
-
+.nav-item{
+  z-index: 10;
+}
+.nav-link{
+  z-index: 20;
+}
 .nav-config-perfil{
   padding-top: 1%;
   float: left;
@@ -797,6 +881,11 @@
 .titulo-perfil{
   float: left;
   padding-left:  5%;
+}
+
+.back{
+  color: #fece18;
+  padding-top: 1%;
 }
 
 .img-perfil{
@@ -846,7 +935,7 @@
 }
 /*------------------------------------------------------------------------FOOTER---------------------------*/
 .contenedor-footer{
-  font-family: Open Sans Condensed;
+  font-family: 'Roboto', sans-serif;
   color: white;
   overflow: hidden;
   background-color: #21160A;
@@ -902,7 +991,7 @@ padding-left:  10%;
 }
   /*-----------------------------------------------------MODIFICAR PRODUCTO---------------------------------------*/
   .contenedor-modificar{
-    font-family: Open Sans Condensed;
+    font-family: 'Roboto', sans-serif;
   }
 
 .panel-novedades{
@@ -927,7 +1016,7 @@ overflow: hidden;
   text-align: center;
   color: black;
   text-decoration: none;
-  font-family: Open Sans Condensed;
+  font-family: 'Roboto', sans-serif;
 }
 
 .logo-novedades{
@@ -944,9 +1033,14 @@ overflow: hidden;
 
 
 .presentacion-ofertas{
-  padding-top: 5%;
+
   padding-left: 15%;
   padding-right: 15%;
+}
+
+.titulo-novedades{
+
+  padding-left: 15%;
 }
 
 .inTo{
@@ -991,4 +1085,24 @@ overflow: hidden;
 
 .faq-emp{
   color: #faca18;
+}
+
+/*----------------------------------agregar producto______________________*/
+
+
+.ing-rigth{
+  width: 90%;
+  float: right;
+}
+
+.ing-left{
+  width: 80%;
+  float: left;
+}
+
+.medidas{
+  float: left;
+  margin-top: 3%;
+  padding-left:1%;
+  padding-right: 1%;
 }

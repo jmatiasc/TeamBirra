@@ -14,6 +14,7 @@ class CreateTablaCarrito extends Migration
     public function up()
     {
         Schema::create('carrito', function (Blueprint $table) {
+          $table->bigIncrements('id');
           $table->bigInteger('id_user')->unsigned();
           $table->bigInteger('id_producto')->unsigned();
           $table->bigInteger('cantidad')->unsigned();

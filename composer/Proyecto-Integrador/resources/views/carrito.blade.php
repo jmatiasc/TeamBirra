@@ -78,7 +78,7 @@
 
   <!-- realizar compra -->
   <div class="boton-realizar-compra col-12 col-sm-12 col-md-12 col-lg-12">
-    <a href="/compra/{{Auth::user()->id}}">
+    <a href="/realizarCompra/{{Auth::user()->id}}">
       <div class="click">
         COMPRAR
       </div>

@@ -14,7 +14,7 @@
     <ul class="categoria " >
               <li class="bg-warning nav-item list-group-item ">
                 <div class="">
-                Config
+                Configuración
                 </div>
               </li>
         @if ($user->es_admin)

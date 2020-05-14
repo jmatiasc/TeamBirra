@@ -68,6 +68,7 @@ Route::get('/eliminar/{idUser}/{idProducto}', 'productoController@eliminarDeCarr
 
 Route::get('/vaciarCarrito/{idUser}', 'productoController@vaciarCarrito');
 
+Route::get('/realizarCompra/{id}', 'ventasController@finalizarCompra');
 
 //------------------------------------------------CONTACTO----------------------------------------
 

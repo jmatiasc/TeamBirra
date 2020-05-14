@@ -3,6 +3,9 @@
 @section('content')
 
 <div class="container contenedor-modificar">
+  <div class="">
+        <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+  </div>
   <h1> <strong> MIS COMPRAS </strong> </h1>
 
 

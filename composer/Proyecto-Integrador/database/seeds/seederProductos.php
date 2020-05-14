@@ -11,25 +11,7 @@ class seederProductos extends Seeder
      */
     public function run()
     {
-      DB::table("productos")->insert(
-          [
-              "nombre"=>"Patagonia Amber Lager",
-              "imagen"=>"pat-amb.png",
-              "graduacion_alcoholica"=>4,
-              "precio"=>170,
-              "puntuacion"=>0,
-              "informacion"=>"encontrarás una cerveza de un suave sabor a caramelo,
-              elaborada con una combinación de 4 maltas, que le dan su característico
-              color ámbar y sabor maltoso, dejando un sutil dulzor en boca",
-              "stock"=>10,
-              "volumen"=>730,
-              "id_color"=>3,
-              "id_estilo"=>3,
-              "id_marca"=>1,
-              "id_origen"=>1,
-            ]
 
-      );
 
       DB::table("productos")->insert(
           [
@@ -51,25 +33,7 @@ class seederProductos extends Seeder
 
       );
 
-      DB::table("productos")->insert(
-          [
-              "nombre"=>"Patagonia Hoppy Lager",
-              "imagen"=>"pat-lag.png",
-              "graduacion_alcoholica"=>5,
-              "precio"=>170,
-              "puntuacion"=>0,
-              "informacion"=>"Con una maltosidad que equilibra el amargor, haciéndole
-                muy fácil de tomar. De final seco y balanceado, que invita a probar
-               otro trago inmediatamente.",
-              "stock"=>180,
-              "volumen"=>730,
-              "id_color"=>3,
-              "id_estilo"=>1,
-              "id_marca"=>1,
-              "id_origen"=>1,
-            ]
 
-      );
 
       DB::table("productos")->insert(
           [
@@ -179,6 +143,46 @@ class seederProductos extends Seeder
               "id_color"=>5,
               "id_estilo"=>8,
               "id_marca"=>4,
+              "id_origen"=>1,
+            ]
+
+      );
+
+      DB::table("productos")->insert(
+          [
+              "nombre"=>"Patagonia Hoppy Lager",
+              "imagen"=>"pat-lag.png",
+              "graduacion_alcoholica"=>5,
+              "precio"=>170,
+              "puntuacion"=>0,
+              "informacion"=>"Con una maltosidad que equilibra el amargor, haciéndole
+                muy fácil de tomar. De final seco y balanceado, que invita a probar
+               otro trago inmediatamente.",
+              "stock"=>180,
+              "volumen"=>730,
+              "id_color"=>3,
+              "id_estilo"=>1,
+              "id_marca"=>1,
+              "id_origen"=>1,
+            ]
+
+      );
+
+      DB::table("productos")->insert(
+          [
+              "nombre"=>"Patagonia Amber Lager",
+              "imagen"=>"pat-amb.png",
+              "graduacion_alcoholica"=>4,
+              "precio"=>170,
+              "puntuacion"=>0,
+              "informacion"=>"encontrarás una cerveza de un suave sabor a caramelo,
+              elaborada con una combinación de 4 maltas, que le dan su característico
+              color ámbar y sabor maltoso, dejando un sutil dulzor en boca",
+              "stock"=>10,
+              "volumen"=>730,
+              "id_color"=>3,
+              "id_estilo"=>3,
+              "id_marca"=>1,
               "id_origen"=>1,
             ]
 

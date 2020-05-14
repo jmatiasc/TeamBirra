@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -53,10 +53,10 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'apellido' => ['required', 'string', 'max:255'],
-            'dni' => ['required', 'integer', 'unique:users'],//deberia poner un maximo de 10 0 11 ----> Produce error por alguna razon
+            'dni' => ['required', 'integer', 'unique:users','nullable'],//deberia poner un maximo de 10 0 11 ----> Produce error por alguna razon
             'nickName' => ['required', 'string', 'max:255'],
-            'direccion'=>['required', 'string', 'max:255'],
-            'telefono'=>['integer'],//deberia poner un maximo ----> Produce error por alguna razon
+            'direccion'=>['required', 'string', 'max:255','nullable'],
+            'telefono'=>['integer','nullable'],//deberia poner un maximo ----> Produce error por alguna razon
 
         ]);
     }
@@ -70,7 +70,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-        
+
             'name' => $data['name'],
             'apellido' =>$data['apellido'],
             'email' => $data['email'],

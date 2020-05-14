@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="container contenedor-modificar">
+  <div class="">
+        <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+  </div>
   <h1>MODIFICAR CATALOGO</h1>
+
 <form role="form"  action='modificarProductos' method='get' enctype="multipart/form-data">
   <div class="row">
 

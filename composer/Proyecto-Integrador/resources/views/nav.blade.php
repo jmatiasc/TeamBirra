@@ -37,7 +37,7 @@
 
     <div class="red-social">
 
-      <a href="www.facebook.com"><img src="/images/iconfb.svg" style="fill:#fece18"width="20px" alt=""></a>
+      <a href="www.facebook.com"><img src="/images/iconfb.svg" style="color: #fece18;"width="20px" alt=""></a>
       <a href="www.instagram.com"><img src="/images/iconIg.svg" width="20px" alt=""></a>
       <a href="www.twitter.com"><img src="/images/iconTw.svg" width="20px" alt=""></a>
     </div>
@@ -48,15 +48,16 @@
 
     <div id="app  ">
 
-        <nav class="navbar navbar-expand-lg navbar-light  row">
+        <nav class="navbar navbar-expand-lg navbar-light  contenedor row">
+              <div class="navbar-brand col-2 col-md-1 col-lg-1 espacio">
 
-              <a class="navbar-brand col-2 col-md-1 col-lg-1 logo" href="/"><img  style="width: 50px;" src="/images/logo1.png" alt="WELCOME"></img></a>
-
+              </div>
+              <a class="navbar-brand col-2 col-md-1 col-lg-1 logo-pag" href="/"><img   src="/images/logo1.png" alt="WELCOME"></img></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-  <div class="panel collapse navbar-collapse col-11 col-md-11 col-lg-11" id="navbarSupportedContent">
+          <div class="panel collapse navbar-collapse col-11 col-md-11 col-lg-11" id="navbarSupportedContent">
           <div class="row total-bar">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto panelCentral col-12 col-md-5 col-lg-5">
@@ -101,7 +102,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registráte') }}</a>
                                 </li>
                             @endif
                         @else
@@ -133,10 +134,10 @@
                           <li class="nav-item ">
                             @guest
                             @if (Route::has('register'))
-                                <a class="nav-link" href="/carrito/"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>bag<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/carrito/"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>Carrito<span class="sr-only">(current)</span></a>
                               @endif
                               @else
-                            <a class="nav-link" href="/carrito/{{Auth::user()->id}}"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>bag<span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/carrito/{{Auth::user()->id}}"> <img style="width: 20px;" src="/images/bag.png" alt="instagram"></img>Carrito<span class="sr-only">(current)</span></a>
                           </li>
                         </div>
                       @endguest

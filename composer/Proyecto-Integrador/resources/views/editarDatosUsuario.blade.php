@@ -22,10 +22,6 @@
 
 
 <div class="container">
-  <div class="">
-        <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
-  </div>
-
 <h1>EDITAR</h1>
   <form role="form" action='/editarDatos/{{$user->id}}' method='post' enctype="multipart/form-data">
       {{ csrf_field()}}
@@ -81,7 +77,7 @@
 
     </div>
 
-    <button type="submit" class="btn btn-warning">Confirmar</button>
+    <button type="submit" class="btn btn-primary">Confirmar</button>
   </form>
 
 </div>

@@ -23,8 +23,6 @@
 
 <div class="container">
 <h1>EDITAR</h1>
-
-<div class=" card-perfil shadow p-3 mb-5 bg-white rounded col-12 col-md-9 col-lg-9">
   <form role="form" action='/editarProducto/{{$producto->id}}' method='post' enctype="multipart/form-data">
       {{ csrf_field()}}
         <?php
@@ -58,27 +56,20 @@
       </div>
 
       <div class="form-group col-md-3">
-        <div class="">
         <label for="inputEmail4">Precio</label>
-        </div>
-        <div class="medidas">$</div><input type="text"name="precio" id="precio" value="{{$producto->precio}}" class="form-control ing-rigth" id="inputEmail4">
+        <input type="text"name="precio" id="precio" value="{{$producto->precio}}" class="form-control" id="inputEmail4">
         {{$errors->first("precio")}}
       </div>
 
       <div class="form-group col-md-3">
-        <div class="">
         <label for="inputEmail4">Volumen</label>
-        </div>
-        <input type="text"name="volumen" id="volumen" value="{{$producto->volumen}}" class="form-control ing-left" id="inputEmail4"><div class="medidas">ml</div>
+        <input type="text"name="volumen" id="volumen" value="{{$producto->volumen}}" class="form-control" id="inputEmail4">
         {{$errors->first("volumen")}}
       </div>
 
       <div class="form-group col-md-3">
-        <div class="">
         <label for="inputEmail4">graduacion alcoholica</label>
-        </div>
-
-        <input type="text"name="graduacionAlcoholica" value="{{$producto->graduacion_alcoholica}}" id="graduacionAlcoholica" class="form-control ing-left" id="inputEmail4"><div class="medidas">%</div>
+        <input type="text"name="graduacionAlcoholica" value="{{$producto->graduacion_alcoholica}}" id="graduacionAlcoholica" class="form-control" id="inputEmail4">
         {{$errors->first("graduacionAlcoholica")}}
       </div>
 
@@ -144,8 +135,8 @@
       </div>
 
     </div>
-    <button type="submit" class="btn btn-warning">Agregar</button>
+    <button type="submit" class="btn btn-primary">Agregar</button>
   </form>
-</div>
+
 </div>
 @endsection

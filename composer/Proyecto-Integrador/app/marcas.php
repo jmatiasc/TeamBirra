@@ -13,4 +13,13 @@ class marcas extends Model
   public function productos(){
     return $this->hasMany('App\producto','marca');
   }
+
+
+  //Scope
+
+  public function scopeNombre($query, $nombre){
+      if($nombre)
+      return $query->where('nombre','like',"%$nombre%");
+  }
+
 }

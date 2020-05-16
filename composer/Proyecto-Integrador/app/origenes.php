@@ -14,5 +14,9 @@ class origenes extends Model
     return $this->hasMany('App\producto','id_origen');
   }
 
-
+  //Scope
+  public function scopeNombre($query, $nombre){
+      if($nombre)
+      return $query->where('nombre','like',"%$nombre%");
+  }
 }

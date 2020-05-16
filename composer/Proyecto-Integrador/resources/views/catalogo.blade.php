@@ -2,6 +2,7 @@
       $orden="des";
     $cant="9";
 
+
  ?>
 
 
@@ -41,7 +42,21 @@
       <!-- Barra de filtrado para busqueda -->
       <div class="navFilter ">
 
-        <form class="" action="catalogo" method="get">
+        <form class="" action="/catalogo" method="get">
+
+          <div class="categoria" id="headingOne">
+
+                        <div class="boton-categorias" style="padding :3%; overflow:hidden;margin:1%;display:block;" >
+                              <button  class="btn btn-outline-warning"style="margin: 1%;padding:2%;width: 18%;height: 100%;display:inline-block;">
+                                <img style="width: 20px;" src="/images/lupa.svg" alt="">
+                              </button>
+                              <input type="text"name="busqueda" style="width: 80%;float:left;padding:1%;" id="busqueda" value="" placeholder="Busqueda" class="form-control" id="inputEmail4">
+
+                        </div>
+
+
+          </div>
+
 
           <?php foreach ($filtros as $filtro => $value): ?>
             <div class="accordion  box-categoria" id="accordionExample">
@@ -62,8 +77,14 @@
                             <div id="<?php echo $filtro ?>" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
                               <div class="">
                                 <div class="checkbox">
-
-                                  <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                                @if (isset($_GET[$filtro]))
+                                  @if($_GET[$filtro]==$val["id"])
+                                    <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>" checked><i> </i>
+                                  @else
+                                      <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                                  @endif
+                               @else <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                               @endif
                                   <?php echo $val["nombre"] ?>
 
                                 </div>
@@ -100,45 +121,38 @@
 
                 <!-- opciones de ordenamiento de catalogo -->
                 <div class="col-12 col-md-12 col-lg-12 filtro-de-pagina">
-                    <form class="" action="/catalogo" method="get">
-                          <div class="col-12 col-md-12 col-lg-4 orden-producto">
+                          <div class="col-12 col-md-12 col-lg-6 orden-producto">
                             <div class="orden-producto-por">
                               <label>Ordenar por:</label>
-                              <select name="orden">
-                                <option value="ASC">precio: menor a mayor<?php $orden="desc"; ?></option>
-                                <option value="DESC">precio : mayor a menor<?php $orden="asc"; ?></option>
-                              </select>
+                                  <select name="orden" class="orden">
+                                          <option value="ASC">precio: menor a mayor<?php $orden="desc"; ?></option>
+                                          <option value="DESC">precio : mayor a menor<?php $orden="asc"; ?></option>
+                                  </select>
                             </div>
                           </div>
 
-                          <div class="col-12 col-md-12 col-lg-4 mostrar">
-                            <input type="submit" class="btn btn-warning " name="MOSTRAR" value="MOSTRAR ">
-                          </div>
 
-
-                          <div class="col-12 col-md-12 col-lg-4 pagina">
+                          <div class="col-12 col-md-12 col-lg-3 pagina">
                             <div class="limite ">
-                              <label>Mostrar:  </label>
-                              <select name="cantidad">
-                                <option value="<?php if(isset($_GET["cantidad"])){ echo  $_GET["cantidad"];}
-                                else echo "9"?>" >
-                                <  <?php if(isset($_GET["cantidad"])){ echo  $_GET["cantidad"];}
-                                else echo "9" ?> >
-                                </option>
-                                <option value="9" >
-                                    9                </option>
-                                  <option value="15">
-                                    15              </option>
-                                    <option value="30">
-                                      30              </option>
-                                    </select> por pagina
+                              <label>Mostrar </label>
+                                  <select name="cantidad" id="cantidad">
+                                            <!--El primer option muestra la cantidad actual de productos que se ven en el catalogo por pagina-->
+                                            <option value="<?php if(isset($_GET["cantidad"])){ echo  $_GET["cantidad"];}
+                                                                else echo "9"?>" > <
+                                                                <?php if(isset($_GET["cantidad"]))
+                                                                        { echo  $_GET["cantidad"];}
+                                                                          else echo "9"
+                                                                ?> >
+                                            </option>
+                                            <option value="9" > 9 </option>
+                                            <option value="15"> 15 </option>
+                                            <option value="30"> 30 </option>
+                                    </select>
+                                    <label for="">por pagina </label>
+
                               </div>
 
-
                             </div>
-
-
-                      </form>
                       </div>
 
 
@@ -152,13 +166,16 @@
 
                     <!-- producto -->
                     <article class="product col-6 col-sm-6 col-md-6 col-lg-4 " >
+                    <!--  <div class="box_product">
 
+                      </div>-->
                       <div class="card_1 shadow p-3 mb-5 bg-white rounded">
 
                         <a href="/producto/<?php echo $producto["id"]?>">
-                          <div class="box_product">
+
                             <div class="product">
                               <div class="marco div_imagen_proxima_animacion">
+
                                 <div class="contenedor_imagen">
                                   <?php
                                         /*  $file="/storage/{{$producto->imagen}}";
@@ -181,7 +198,7 @@
                                       {{$producto->marca->nombre}}</p>
                               <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
                             </div>
-                          </div>
+
 
                         </a>
 

@@ -57,6 +57,7 @@ class ventasController extends Controller
         return view("/mostrarCompras",$vac);
     }
 
+  
 
 
 }

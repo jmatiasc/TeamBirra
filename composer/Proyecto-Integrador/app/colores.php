@@ -14,4 +14,10 @@ class colores extends Model
     return $this->hasMany('App\producto','id_color');
   }
 
+  //Scope
+  public function scopeNombre($query, $nombre){
+      if($nombre)
+      return $query->where('nombre','like',"%$nombre%");
+  }
+
 }

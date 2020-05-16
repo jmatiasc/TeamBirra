@@ -70,6 +70,10 @@ Route::get('/vaciarCarrito/{idUser}', 'productoController@vaciarCarrito');
 
 Route::get('/realizarCompra/{id}', 'ventasController@finalizarCompra');
 
+Route::get('/aumentarCantidad/{idUser}/{idProducto}', 'productoController@aumentarCantidad');
+
+Route::get('/decrementarDeCarrito/{idUser}/{idProducto}', 'productoController@decrementarDeCarrito');
+
 //------------------------------------------------CONTACTO----------------------------------------
 
 Route::get('/contact', function () {

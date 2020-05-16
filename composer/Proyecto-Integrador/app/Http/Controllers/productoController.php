@@ -210,6 +210,12 @@ class productoController extends Controller
         $origen=$request->get('origen');
         $estilo=$request->get('estilo');
         $color=$request->get('color');
+        $busqueda=$request->get('busqueda');
+
+        $busquedaMarca=marcas::where("nombre",'LIKE',"%$busqueda%")->get();
+        $busquedaOrigenes=origenes::where("nombre",'LIKE',"%$busqueda%")->get();
+        $busquedaEstilos=estilos::where("nombre",'LIKE',"%$busqueda%")->get();
+        $busquedaColor=colores::where("nombre",'LIKE',"%$busqueda%")->get();
 
 
         $orden="asc";
@@ -228,7 +234,6 @@ class productoController extends Controller
           ->where("id_estilo",'LIKE',"%$estilo%")
           ->where("id_color",'LIKE',"%$color%")
           ->paginate($cant);
-
 
             $marcas=marcas::orderBy('nombre','ASC')->get();
             $estilos=estilos::orderBy('nombre','ASC')->get();
@@ -290,15 +295,47 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
           return redirect('login');
         }
 
+        else if($idProducto==NULL){
+          $carritos= Carrito::all()->where("id_user","=",$idUser);
+
+          //dd($productos);
+
+          $marcas=marcas:: all();
+          $estilos=estilos::all();
+          $colores=colores::all();
+          $origenes=origenes::all();
+          $vac=compact("carritos","marcas","estilos","colores","origenes","idUser");
+
+        return view("carrito",$vac);
+
+        }
+
+
+        $productoEnCarrito= Carrito::all()->where("id_producto","=",$idProducto)->where("id_user","=",$idUser);
+
+
+        if($productoEnCarrito->first()!=NULL){
 
           $producto= Producto::find($idProducto);
+          if(!$req["cantidad"]){
+              $producto->stock=$producto->stock-1;
+              $producto->save();
+              $productoEnCarrito->first()->cantidad=$productoEnCarrito->first()->cantidad+1;
+              $productoEnCarrito->first()->save();
+          }
+          else{
 
-          //falta controlar si existe el producto dentro del carrito
-          //si existe aumento la cantidad a comprar
-          //si no existe creo un nuevo carrito
+              $producto->stock=$producto->stock-$req["cantidad"];
+              $producto->save();
+              $productoEnCarrito->first()->cantidad=$productoEnCarrito->first()->cantidad+$req["cantidad"];
+              $productoEnCarrito->first()->save();
+          }
 
+        }
+
+        else{
           if($idProducto!=NULL){
-
+              $producto= Producto::find($idProducto);
               $nuevoCarrito= new carrito();
               $nuevoCarrito->id_user=$idUser;
               $nuevoCarrito->id_producto=$producto->id;
@@ -323,6 +360,15 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
               $nuevoCarrito->save();
           }
 
+        }
+
+
+          //falta controlar si existe el producto dentro del carrito
+          //si existe aumento la cantidad a comprar
+          //si no existe creo un nuevo carrito
+
+
+
           $carritos= Carrito::all()->where("id_user","=",$idUser);
 
           //dd($productos);
@@ -338,9 +384,28 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
       }
 
+      public function aumentarCantidad($idUser,$idProducto){
 
-      public function eliminarDeCarrito($idUser,$idProducto){
+        //se deberia cambiar el id_user y $idProducto por el id del carrito
+        $productoEnCarrito= Carrito::all()->where("id_producto","=",$idProducto);
+        $producto= Producto::find($idProducto);
+        if($producto->stock>0){
+            $producto->stock=$producto->stock-1;
+            $producto->save();
+            $productoEnCarrito->first()->cantidad=$productoEnCarrito->first()->cantidad+1;
+            $productoEnCarrito->first()->save();
+        }
 
+        $carritos= Carrito::all()->where("id_user","=",$idUser);
+
+        $vac=compact("carritos","idUser");
+        return view("/carrito",$vac);
+      }
+
+
+
+      public function decrementarDeCarrito($idUser,$idProducto){
+          //se deberia cambiar el id_user y $idProducto por el id del carrito
 
             $productoEnCarrito= Carrito::all()->where("id_producto","=",$idProducto);
             $producto= Producto::find($idProducto);
@@ -356,6 +421,24 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
                   $producto->stock=$producto->stock+1;
                   $producto->save();
             }
+
+            $carritos= Carrito::all()->where("id_user","=",$idUser);
+
+            $vac=compact("carritos","idUser");
+            return view("/carrito",$vac);
+
+      }
+
+      public function eliminarDeCarrito($idUser,$idProducto){
+          //se deberia cambiar el id_user y $idProducto por el id del carrito
+
+            $productoEnCarrito= Carrito::all()->where("id_producto","=",$idProducto);
+            $producto= Producto::find($idProducto);
+
+            $producto->stock=$producto->stock+$productoEnCarrito->first()->cantidad;
+            $productoEnCarrito->first()->delete();
+            $producto->save();
+
 
             $carritos= Carrito::all()->where("id_user","=",$idUser);
 

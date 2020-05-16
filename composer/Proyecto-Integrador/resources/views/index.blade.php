@@ -44,7 +44,7 @@
 
                     <a href="/producto/<?php echo $producto["id"]?>">
 
-                      <div class="box_product">
+
                           <div class="marco div_imagen_proxima_animacion">
                             <div class="contenedor_imagen">
                               <img src="/storage/{{$producto->imagen}}" alt=" ">
@@ -53,7 +53,7 @@
 
                           <h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
                           <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
-                        </div>
+
                     </a>
                   </div>
                 </article>
@@ -117,7 +117,7 @@
 
               <a href="/producto/<?php echo $producto["id"]?>">
 
-                <div class="box_product">
+              
                     <div class="marco div_imagen_proxima_animacion">
                       <div class="contenedor_imagen">
                         <img src="/storage/{{$producto->imagen}}" alt=" ">
@@ -126,7 +126,7 @@
 
                     <h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
                     <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
-                  </div>
+
               </a>
             </div>
           </article>

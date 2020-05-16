@@ -45,9 +45,9 @@
 
         <!-- modificador de cantidad -->
         <div class="cantidad-articulo col-6 col-sm-2 col-md-2 col-lg-2">
-          <samp class="sumar-restar-articulo col-4 col-sm-4 col-md-4 col-lg-4"><a href="#">-</a></samp>
+          <samp class="sumar-restar-articulo col-4 col-sm-4 col-md-4 col-lg-4"><a href="/decrementarDeCarrito/{{$idUser}}/{{$productoPorCarrito->id_producto}}">-</a></samp>
           <samp class="sumar-restar-cantidad col-4 col-sm-4 col-md-4 col-lg-4"><label for="">{{$productoPorCarrito->cantidad}}</label></samp>
-          <samp class="sumar-restar-articulo col-4 col-sm-4 col-md-4 col-lg-4"><a href="#">+</a></samp>
+          <samp class="sumar-restar-articulo col-4 col-sm-4 col-md-4 col-lg-4"><a href="/aumentarCantidad/{{$productoPorCarrito->id_user}}/{{$productoPorCarrito->id_producto}}">+</a></samp>
         </div>
 
         <!-- precio del producto -->

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class venta extends Model
+class pedidos extends Model
 {
-  public $table="ventas";
+  public $table="pedidos";
   public $timestamps=true;
 
 
@@ -14,8 +14,7 @@ class venta extends Model
     return $this->belongsTo('App\producto','id_producto');
   }
 
-  public function usuarios(){
-    //devuelve el carrito al que pertenece
+  public function usuario(){
     return $this->belongsTo('App\User','id_user');
   }
 

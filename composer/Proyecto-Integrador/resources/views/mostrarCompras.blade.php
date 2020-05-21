@@ -4,7 +4,9 @@
 
 <div class="container contenedor-modificar">
   <h1> <strong> MIS COMPRAS </strong> </h1>
-
+  <div class="">
+        <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+  </div>
 
   <table class="table">
     <thead class="thead-dark">

@@ -4,6 +4,9 @@
 
 <div class="container contenedor-modificar">
   <h1>MODIFICAR CATALOGO</h1>
+  <div class="">
+        <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+  </div>
 <form role="form"  action='modificarProductos' method='get' enctype="multipart/form-data">
   <div class="row">
 

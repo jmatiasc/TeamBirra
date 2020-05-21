@@ -1,6 +1,6 @@
 <?php
       $orden="des";
-    $cant="9";
+    $cant="12";
 
 
  ?>
@@ -10,6 +10,31 @@
  <?php
 
 
+$marcas->push([
+  "id"=>"0",
+  "nombre"=>"todos",
+  "logo"=>NULL,
+]);
+
+$origenes->push([
+  "id"=>"0",
+  "nombre"=>"todos",
+  "logo"=>NULL,
+]);
+
+$colores->push([
+  "id"=>"0",
+  "nombre"=>"todos",
+  "red"=>NULL,
+  "green"=>NULL,
+  "blue"=>NULL,
+]);
+
+$estilos->push([
+  "id"=>"0",
+  "nombre"=>"todos",
+  "detalle"=>NULL,
+]);
 
  $filtros = [
  	"marca" => $marcas  ,
@@ -17,6 +42,8 @@
  "estilo" => $estilos,
  "color" => $colores
 ];
+
+
  ?>
 
 
@@ -79,18 +106,20 @@
                                 <div class="checkbox">
                                 @if (isset($_GET[$filtro]))
                                   @if($_GET[$filtro]==$val["id"])
-                                    <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>" checked><i> </i>
+                                    <input type="radio" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>" checked><i> </i>
                                   @else
-                                      <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                                      <input type="radio" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
                                   @endif
-                               @else <input type="checkbox" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
+                               @else <input type="radio" name="<?php echo $filtro ?>" value="<?php echo $val["id"] ?>"><i> </i>
                                @endif
                                   <?php echo $val["nombre"] ?>
 
                                 </div>
                               </div>
                             </div>
+
                             <?php endforeach ?>
+
                     </div>
               </div>
 
@@ -125,6 +154,10 @@
                             <div class="orden-producto-por">
                               <label>Ordenar por:</label>
                                   <select name="orden" class="orden">
+                                          <option value="<?php if(isset($_GET["orden"])){ echo  $_GET["orden"];}else echo "ASC"?>" >
+                                                      <  <?php if(isset($_GET["orden"])=="ASC") {echo "precio: menor a mayor";}else {echo "precio : mayor a menor";}
+                                                              ?> >
+                                          </option>
                                           <option value="ASC">precio: menor a mayor<?php $orden="desc"; ?></option>
                                           <option value="DESC">precio : mayor a menor<?php $orden="asc"; ?></option>
                                   </select>
@@ -132,21 +165,21 @@
                           </div>
 
 
-                          <div class="col-12 col-md-12 col-lg-3 pagina">
+                          <div class="col-12 col-md-12 col-lg-6 pagina">
                             <div class="limite ">
                               <label>Mostrar </label>
                                   <select name="cantidad" id="cantidad">
                                             <!--El primer option muestra la cantidad actual de productos que se ven en el catalogo por pagina-->
                                             <option value="<?php if(isset($_GET["cantidad"])){ echo  $_GET["cantidad"];}
-                                                                else echo "9"?>" > <
+                                                                else echo "12"?>" > <
                                                                 <?php if(isset($_GET["cantidad"]))
                                                                         { echo  $_GET["cantidad"];}
-                                                                          else echo "9"
+                                                                          else echo "12"
                                                                 ?> >
                                             </option>
-                                            <option value="9" > 9 </option>
-                                            <option value="15"> 15 </option>
-                                            <option value="30"> 30 </option>
+                                            <option value="12" > 12 </option>
+                                            <option value="24"> 24 </option>
+                                            <option value="100"> 100 </option>
                                     </select>
                                     <label for="">por pagina </label>
 
@@ -165,69 +198,70 @@
 
 
                     <!-- producto -->
-                    <article class="product col-6 col-sm-6 col-md-6 col-lg-4 " >
-                    <!--  <div class="box_product">
+                    <article class=" col-6 col-sm-6 col-md-6 col-lg-3 " >
 
-                      </div>-->
                       <div class="card_1 shadow p-3 mb-5 bg-white rounded">
 
                         <a href="/producto/<?php echo $producto["id"]?>">
 
-                            <div class="product">
-                              <div class="marco div_imagen_proxima_animacion">
+                                <div class="product">
 
-                                <div class="contenedor_imagen">
-                                  <?php
-                                        /*  $file="/storage/{{$producto->imagen}}";
-                                          if(is_file($file )){
-                                              $img=$producto["imagen"];}
-                                          else {
-                                            $img="images/NOT-IMG.jpg";
-                                          }
-                                          {{$img}}
-                                          */
+                                  @php
+                                    if ($producto->color->nombre=="Rojo") {
+                                      $img="circulo-rojo.png";
+                                    }else{
+                                      if ($producto->color->nombre=="Negro") {
+                                        $img="circulo-negro.png";
+                                      }else{
+                                          $img="circulo-amarillo.png";
+                                      }
+                                    }
+                                  @endphp
+                                  <div class="marco "  style="background-image:url('../images/{{$img}}');">
+                                      <img src="/storage/{{$producto->imagen}}" alt=" ">
+                                  </div>
 
 
-                                          ?>
-                                  <img src="/storage/{{$producto->imagen}}" alt=" ">
+                                  <div class="marco-nombre">
+                                      <h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
+                                  </div>
+
+                                  <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
+
+                                  <div class="puntuacion">
+
+                                      <?php for( $i = 0; $i<$producto->puntuacion; $i++ ) : ?>
+                                        <label for="rating-input-1-5" class="rating-star1"></label>
+                                      <?php endfor ?>
+                                      <?php for( $i = $producto->puntuacion; $i<5; $i++ ) : ?>
+                                        <label for="rating-input-1-5" class="rating-star2"></label>
+                                      <?php endfor ?>
+                                  </div>
+
+                                  <div class="add_bag">
+                                    @guest
+                                    @if (Route::has('register'))
+                                      <a href="/carrito/">  <img src="images/bag.png" alt="">
+                                      </a>
+                                    @endif
+                                    @else
+                                    <a href="/carrito/{{Auth::user()->id}}/{{$producto["id"]}}">
+                                    <img src="images/bag.png" alt="">
+                                  </a>
+                                    @endguest
                                 </div>
-                              </div>
 
-                              <h3><strong><?php echo  $producto["nombre"] ?></strong></h3>
-                              <p>
-                                      {{$producto->marca->nombre}}</p>
-                              <div class="precio_producto">$ <?php echo $producto["precio"] ?></div>
-                            </div>
+                                </div>
 
 
                         </a>
 
-                        <!-- puntuacion de producto -->
-                        <span class="puntuacion">
 
-                            <?php for( $i = 0; $i<$producto->puntuacion; $i++ ) : ?>
-                              <label for="rating-input-1-5" class="rating-star1"></label>
-                            <?php endfor ?>
-                            <?php for( $i = $producto->puntuacion; $i<5; $i++ ) : ?>
-                              <label for="rating-input-1-5" class="rating-star2"></label>
-                            <?php endfor ?>
-                        </span>
-
-                        <!-- añadir al carrito -->
-                        <div class="add_bag">
-                          @guest
-                          @if (Route::has('register'))
-                            <a href="/carrito/">  <img src="images/bag.png" alt="">
-                            </a>
-                          @endif
-                          @else
-                          <a href="/carrito/{{Auth::user()->id}}/{{$producto["id"]}}">
-                          <img src="images/bag.png" alt="">
-                        </a>
-                          @endguest
-                      </div>
                       </div>
                     </article>
+
+
+
 
 
                   <?php endforeach ?>

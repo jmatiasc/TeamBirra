@@ -1,14 +1,14 @@
 
-	@extends('footer')
+@extends('footer')
 @extends('nav')
 
 @section('content')
-<div class="container">
+<div class="container ">
   <div class="titulo-carrito">
     <h2>TU CARRITO</h2>
   </div>
 
-  <div class="contenedor-compra col-12 col-sm-12 col-md-12 col-lg-12 ">
+  <div class="contenedor-compra shadow p-3 mb-5 bg-white rounded col-12 col-sm-12 col-md-12 col-lg-12 ">
 
 
     <?php $sumarTotal=0; ?>
@@ -78,7 +78,7 @@
 
   <!-- realizar compra -->
   <div class="boton-realizar-compra col-12 col-sm-12 col-md-12 col-lg-12">
-    <a href="/realizarCompra/{{Auth::user()->id}}">
+    <a href="/finalizarCompraDatos/{{Auth::user()->id}}">
       <div class="click">
         COMPRAR
       </div>

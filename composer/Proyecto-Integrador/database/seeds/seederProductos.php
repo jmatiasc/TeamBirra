@@ -15,6 +15,25 @@ class seederProductos extends Seeder
 
       DB::table("productos")->insert(
           [
+              "id"=>0,
+              "nombre"=>"Producto no pertenece a catalogo actual",
+              "imagen"=>"NOT-IMG.jpg",
+              "graduacion_alcoholica"=>7,
+              "precio"=>0,
+              "puntuacion"=>0,
+              "informacion"=>"Este producto ya no se encuentra en nuestro stock",
+              "stock"=>0,
+              "volumen"=>0,
+              "id_color"=>1,
+              "id_estilo"=>1,
+              "id_marca"=>1,
+              "id_origen"=>1,
+            ]
+
+      );
+
+      DB::table("productos")->insert(
+          [
               "nombre"=>"Leffe Royale Blonde",
               "imagen"=>"leffe.png",
               "graduacion_alcoholica"=>7,

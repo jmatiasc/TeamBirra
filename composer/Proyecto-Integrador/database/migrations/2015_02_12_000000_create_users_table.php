@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('apellido');
             $table->string('email')->unique();
-            $table->integer('telefono')->nullable()->default(NULL);
+            $table->bigInteger('telefono')->nullable()->default(NULL);
             $table->string('direccion')->nullable()->default(NULL);
             $table->string('nickName')->unique();
             $table->boolean('es_admin')->nullable()->default(FALSE);

@@ -16,7 +16,7 @@ class Carrito extends Model
 
   public function usuarios(){
     //devuelve el carrito al que pertenece
-    return $this->belongsTo('App\users','id_user');
+    return $this->belongsTo('App\User','id_user');
   }
 
 }

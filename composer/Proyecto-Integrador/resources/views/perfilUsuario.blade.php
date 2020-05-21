@@ -1,4 +1,4 @@
-@extends('footer')
+
 @extends('nav')
 
 @section('content')
@@ -8,7 +8,7 @@
 
   <div  class=" navbar-expand-lg navbar-light  nav-config-perfil col-12 col-md-3 col-lg-3" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="toggler"><img style="width:60px" src="/images/menu-icon.svg" alt="X"> </img></span>
   </button>
   <div class="collapse navbar-collapse lista-perfil" id="navbarNavDropdown">
     <ul class="categoria " >
@@ -17,24 +17,38 @@
                 Config
                 </div>
               </li>
-        @if ($user->es_admin)
-              <div class="">
-              <li class=" boton-categorias nav-item list-group-item list-group-item-action">
-                <a class="nav-link " href="/agregarProducto">Agregar un Producto <span class="sr-only">(current)</span></a>
-              </li>
-              </div>
-              <div class="">
-              <li class=" boton-categorias nav-item list-group-item list-group-item-action">
-                <a class="nav-link" href="/modificarProductos">Modificar Catalogo</a>
-              </li>
-              </div>
-      @endif
-              <div class="">
-              <li class="boton-categorias nav-item list-group-item list-group-item-action">
-                <a class="nav-link" href="/compra/{{$user->id}}">Mis compras</a>
-              </li>
-              </div>
+              @if ($user->es_admin)
+                <div class="">
+                <li class=" boton-categorias nav-item list-group-item list-group-item-action">
+                  <a class="nav-link " href="/agregarProducto">Agregar un Producto <span class="sr-only">(current)</span></a>
+                </li>
+                </div>
+                <div class="">
+                <li class=" boton-categorias nav-item list-group-item list-group-item-action">
+                  <a class="nav-link" href="/modificarProductos">Modificar Catalogo</a>
+                </li>
+                </div>
+                <div class="">
+                <li class="boton-categorias nav-item list-group-item list-group-item-action">
+                  <a class="nav-link" href="/administrarPedidos">Administrar Pedidos</a>
+                </li>
+                </div>
+              @endif
+                <div class="">
+                <li class="boton-categorias nav-item list-group-item list-group-item-action">
+                  <a class="nav-link" href="/compra/{{$user->id}}">Historial de compras</a>
+                </li>
+                </div>
+
+                <div class="">
+                <li class="boton-categorias nav-item list-group-item list-group-item-action">
+                  <a class="nav-link" href="/verPedidos/{{$user->id}}">Mis Pedidos</a>
+                </li>
+                </div>
+
+
               @if (!$user->es_admin)
+
                       <li class="boton-categorias nav-item dropdown nav-item list-group-item list-group-item-action">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                           Queres ser Admin? <span class="caret"></span>
@@ -65,7 +79,7 @@
 </div>
 
 <div class="titulo-perfil col-12 col-sm-12 col-md-12 col-lg-9">
-  <h3>Perfil Usuario</h3>
+  <h2>Perfil Usuario</h2>
   <div class="" >
     <img src="/images/line.png" alt="">
   </div>
@@ -76,9 +90,7 @@
 <div class=" card-perfil shadow p-3 mb-5 bg-white rounded col-12 col-md-9 col-lg-9">
 <div class="img-perfil col-12 col-md-4 col-lg-4">
 
-  <div class="marco-img-perfil shadow p-3 mb-5 bg-white rounded">
-    <img src="/images/perfilIcon.png" alt="">
-  </div>
+
   <div class="boton-perfil col-12 col-sm-12 col-md-12 col-lg-12">
     <a href="/mostrarEditarDatos/{{$user->id}}">
       <div class="btn-edit-perfil ">

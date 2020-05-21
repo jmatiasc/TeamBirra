@@ -23,6 +23,9 @@
 
 <div class="container">
 <h1>EDITAR</h1>
+<div class="">
+      <a class="back" href="/perfilUsuario/{{Auth::user()->id}}"> << Volver al perfil </a>
+</div>
   <form role="form" action='/editarDatos/{{$user->id}}' method='post' enctype="multipart/form-data">
       {{ csrf_field()}}
 
@@ -38,6 +41,7 @@
         <label for="inputEmail4">Nombre</label>
         <input type="text"name="name" id="name" value="{{$user->name}}" class="form-control" id="inputEmail4">
         {{$errors->first("name")}}
+        
       </div>
 
       <div class="form-group col-md-3">

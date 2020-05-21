@@ -12,6 +12,7 @@ use App\colores;
 use App\origenes;
 use App\carrito;
 use App\User;
+use App\venta;
 
 class productoController extends Controller
 {
@@ -32,21 +33,49 @@ class productoController extends Controller
       $reglas=[
             "nombre"=>"string|min:1|unique:productos,nombre",
             "precio"=>"integer|min:0",
-            "informacion"=>"string|min:1|",
+            "informacion"=>"string|min:0|max:200",
             "graduacionAlcoholica"=>"integer|min:0",
             "volumen"=>"integer|min:0",
       ];
 
       $mensajes=[
-        "string"=>"El campo :attrubute debe ser un texto",
-        "min"=>"El campo :attrubute tiene un minimo de :min",
-        "max"=>"El campo :attrubute debe tener un maximo de :max",
-        "integer"=>"El campo :attrubute debe ser un número entero",
-        "unique"=>"El campo :attrubute ya existe",
+        "string"=>"El campo :attribute debe ser un texto",
+        "min"=>"El campo :attribute tiene un minimo de :min",
+        "max"=>"El campo :attribute debe tener un maximo de :max",
+        "integer"=>"El campo :attribute debe ser un número entero",
+        "unique"=>"El campo :attribute ya existe",
       ];
 
       $this->validate($request,$reglas,$mensajes);
 
+        $marca=marcas::find($request["marca"]);
+        if($marca==NULL){
+          $marca=new marcas();
+          $marca->nombre=$request["marca"];
+          $marca->save();
+        }
+
+
+        $estilo=estilos::find($request["estilo"]);
+        if($estilo==NULL){
+          $estilo=new estilos();
+          $estilo->nombre=$request["estilo"];
+          $estilo->save();
+        }
+
+        $color=colores::find($request["color"]);
+        if($color==NULL){
+          $color=new colores();
+          $color->nombre=$request["color"];
+          $color->save();
+        }
+
+        $origen=origenes::find($request["origen"]);
+        if($origen==NULL){
+          $origen=new origenes();
+          $origen->nombre=$request["origen"];
+          $origen->save();
+        }
 
         //Creo nuevo producto
         $productoNuevo= new Producto();
@@ -65,13 +94,13 @@ class productoController extends Controller
         //guardo el nombre del producto
         $productoNuevo->nombre=$request["nombre"];
         //guardo la marca del producto
-        $productoNuevo->id_marca=$request["marca"];
+        $productoNuevo->id_marca=$marca->id;
         //guardo la color del producto
-        $productoNuevo->id_color=$request["color"];
+        $productoNuevo->id_color=$color->id;
         //guardo la estilo del producto
-        $productoNuevo->id_estilo=$request["estilo"];
+        $productoNuevo->id_estilo=$estilo->id;
         //guardo la origen del producto
-        $productoNuevo->id_origen=$request["origen"];
+        $productoNuevo->id_origen=$origen->id;
         //guardo la precio del producto
         $productoNuevo->precio=$request["precio"];
         //guardo la descripcion del producto
@@ -94,12 +123,8 @@ class productoController extends Controller
         //uso este return redirect("/agregarProducto");???
 
 
-        $marcas=marcas::orderBy('nombre','ASC')->get();
-        $estilos=estilos::orderBy('nombre','ASC')->get();
-        $colores=colores::orderBy('nombre','ASC')->get();
-        $origenes=origenes::orderBy('nombre','ASC')->get();
-        $vac=compact("marcas","estilos","colores","origenes");
-      return view("/agregarProducto",$vac);
+
+      return redirect("/producto/$productoNuevo->id");
 
     }
 
@@ -111,31 +136,91 @@ class productoController extends Controller
 
     public function mostrarParaModificarProductos(Request $request){
 
-      //$busqueda=$request["busqueda"];
-      $marca=$request->get('marca');
-      $origen=$request->get('origen');
-      $estilo=$request->get('estilo');
-      $color=$request->get('color');
 
-      $productos=Producto::orderBy('precio','ASC')
-      ->where("id_marca",'LIKE',"%$marca%")
-      ->where("id_origen",'LIKE',"%$origen%")
-      ->where("id_estilo",'LIKE',"%$estilo%")
-      ->where("id_color",'LIKE',"%$color%")
-      ->paginate(30);
+              $busqueda=$request->get('busqueda');
 
-    //  dd($productos);
+              if($busqueda)
+                {
 
-      $marcas=marcas:: all();
-      $estilos=estilos::all();
-      $colores=colores::all();
-      $origenes=origenes::all();
-      $vac=compact("productos","marcas","estilos","colores","origenes");
+                    $busquedaMarca=marcas::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+                    $busquedaOrigenes=origenes::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+                    $busquedaEstilos=estilos::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+                    $busquedaColor=colores::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+
+
+                    if(!empty($busquedaMarca)){
+                        $marca=$busquedaMarca["0"]["id"];
+                        $request["marca"]=$marca;
+                      }else $marca=$request->get('marca');
+
+                    if(!empty($busquedaOrigenes)){
+                      $origen=$busquedaOrigenes["0"]["id"];
+                      $request["origen"]=$origen;
+                    }else $origen=$request->get('origen');
+
+                    if(!empty($busquedaEstilos)){
+                      $estilo=$busquedaEstilos["0"]["id"];
+                      $request["estilo"]=$estilo;
+                    }else $estilo=$request->get('estilo');
+
+                    if(!empty($busquedaColor)){
+                      $color=$busquedaColor["0"]["id"];
+                      $request["color"]=$color;
+                    }else $color=$request->get('color');
+
+
+                  }
+                else {
+                  $marca=$request->get('marca');
+                  $origen=$request->get('origen');
+                  $estilo=$request->get('estilo');
+                  $color=$request->get('color');
+                }
+
+
+              $orden="asc";
+              $cant="9";
+              if(isset($_GET["orden"])){
+                $orden=$_GET["orden"];}
+
+              if(isset($_GET["cantidad"])){
+                $cant=$_GET["cantidad"];}
+
+
+                $productos=Producto::orderBy('precio',$orden)
+                ->where("id","!=",1)
+                ->where("id_marca",'LIKE',"%$marca%")
+                ->where("id_origen",'LIKE',"%$origen%")
+                ->where("id_estilo",'LIKE',"%$estilo%")
+                ->where("id_color",'LIKE',"%$color%")
+                ->paginate($cant);
+
+                  $marcas=marcas::orderBy('nombre','ASC')->get();
+                  $estilos=estilos::orderBy('nombre','ASC')->get();
+                  $colores=colores::orderBy('nombre','ASC')->get();
+                  $origenes=origenes::orderBy('nombre','ASC')->get();
+                $vac=compact("productos","marcas","estilos","colores","origenes");
+
 
         return view("modificarProductos",$vac);
     }
 
     public function eliminarProducto($id){
+
+      $enVendidos=venta::where("id_producto",'=',"$id")->get();
+
+      foreach($enVendidos as $v){
+        $venta=new venta();
+        $venta->id_producto=1;
+        $venta->created_at=$v->created_at;
+        $venta->updated_at=$v->updated_at;
+        $venta->id_user=$v->id_user;
+        $venta->cantidad=$v->cantidad;
+        $venta->save();
+        $v->delete();
+      }
+
+
       $producto= Producto::findOrFail($id);
       $producto->delete();
 
@@ -206,20 +291,61 @@ class productoController extends Controller
     public static  function listadoDeProductos(Request $request){
 
 
-        $marca=$request->get('marca');
-        $origen=$request->get('origen');
-        $estilo=$request->get('estilo');
-        $color=$request->get('color');
+
         $busqueda=$request->get('busqueda');
 
-        $busquedaMarca=marcas::where("nombre",'LIKE',"%$busqueda%")->get();
-        $busquedaOrigenes=origenes::where("nombre",'LIKE',"%$busqueda%")->get();
-        $busquedaEstilos=estilos::where("nombre",'LIKE',"%$busqueda%")->get();
-        $busquedaColor=colores::where("nombre",'LIKE',"%$busqueda%")->get();
+        if($busqueda)
+          {
+
+              $busquedaMarca=marcas::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+              $busquedaOrigenes=origenes::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+              $busquedaEstilos=estilos::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
+              $busquedaColor=colores::where("nombre",'LIKE',"%$busqueda%")->get()->toArray();
 
 
-        $orden="asc";
-        $cant="9";
+              if(!empty($busquedaMarca)){
+                  $marca=$busquedaMarca["0"]["id"];
+                  $request["marca"]=$marca;
+                }else $marca=$request->get('marca');
+
+              if(!empty($busquedaOrigenes)){
+                $origen=$busquedaOrigenes["0"]["id"];
+                $request["origen"]=$origen;
+              }else $origen=$request->get('origen');
+
+              if(!empty($busquedaEstilos)){
+                $estilo=$busquedaEstilos["0"]["id"];
+                $request["estilo"]=$estilo;
+              }else $estilo=$request->get('estilo');
+
+              if(!empty($busquedaColor)){
+                $color=$busquedaColor["0"]["id"];
+                $request["color"]=$color;
+              }else $color=$request->get('color');
+
+
+            }
+          else {
+            if($request->get('marca')!="0")
+              {$marca=$request->get('marca');}
+              else{$marca=NULL;}
+
+            if($request->get('origen')!="0")
+            {$origen=$request->get('origen');}
+            else{$origen=NULL;}
+
+            if($request->get('estilo')!="0")
+            {$estilo=$request->get('estilo');}
+            else{$estilo=NULL;}
+
+            if($request->get('color')!="0")
+            {$color=$request->get('color');}
+            else{$color=NULL;}
+          }
+
+          $orden="desc";
+          $cant="12";
+
         if(isset($_GET["orden"])){
           $orden=$_GET["orden"];}
 
@@ -228,6 +354,7 @@ class productoController extends Controller
 
 
           $productos=Producto::orderBy('precio',$orden)
+          ->where("id","!=",1)
           ->where("stock","!=",0)
           ->where("id_marca",'LIKE',"%$marca%")
           ->where("id_origen",'LIKE',"%$origen%")
@@ -290,23 +417,27 @@ class productoController extends Controller
 public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
 
-
+/*
+        Mi primer middleware rustico
         if($idUser==NULL){
           return redirect('login');
         }
 
-        else if($idProducto==NULL){
-          $carritos= Carrito::all()->where("id_user","=",$idUser);
+        else */
 
-          //dd($productos);
+        if($idProducto==NULL){/*
+            $carritos= Carrito::all()->where("id_user","=",$idUser);
 
-          $marcas=marcas:: all();
-          $estilos=estilos::all();
-          $colores=colores::all();
-          $origenes=origenes::all();
-          $vac=compact("carritos","marcas","estilos","colores","origenes","idUser");
+            //dd($productos);
 
-        return view("carrito",$vac);
+            $marcas=marcas:: all();
+            $estilos=estilos::all();
+            $colores=colores::all();
+            $origenes=origenes::all();
+            $vac=compact("carritos","marcas","estilos","colores","origenes","idUser");
+
+          return view("carrito",$vac);*/
+          redirect("/carrito/$idUser");
 
         }
 
@@ -367,7 +498,7 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
           //si existe aumento la cantidad a comprar
           //si no existe creo un nuevo carrito
 
-
+/*
 
           $carritos= Carrito::all()->where("id_user","=",$idUser);
 
@@ -381,7 +512,9 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
         return view("carrito",$vac);
 
+        */
 
+        return redirect("/carrito/$idUser");
       }
 
       public function aumentarCantidad($idUser,$idProducto){
@@ -398,8 +531,9 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
         $carritos= Carrito::all()->where("id_user","=",$idUser);
 
-        $vac=compact("carritos","idUser");
-        return view("/carrito",$vac);
+    /*    $vac=compact("carritos","idUser");
+        return view("/carrito",$vac);*/
+        return redirect("/carrito/$idUser");
       }
 
 
@@ -424,8 +558,9 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
 
             $carritos= Carrito::all()->where("id_user","=",$idUser);
 
-            $vac=compact("carritos","idUser");
-            return view("/carrito",$vac);
+          /*  $vac=compact("carritos","idUser");
+            return view("/carrito",$vac);*/
+            return redirect("/carrito/$idUser");
 
       }
 
@@ -440,10 +575,10 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
             $producto->save();
 
 
-            $carritos= Carrito::all()->where("id_user","=",$idUser);
+            /*$carritos= Carrito::all()->where("id_user","=",$idUser);
 
-            $vac=compact("carritos","idUser");
-            return view("/carrito",$vac);
+            $vac=compact("carritos","idUser");*/
+            return redirect("/carrito/$idUser");
 
       }
 
@@ -455,16 +590,33 @@ public function agregarCarrito($idUser=NULL,$idProducto=NULL,Request $req){
           return redirect("/carrito/$idUser");
       }
 
+      public function irCarrito($idUser=NULL){
+
+        $carritos= Carrito::all()->where("id_user","=",$idUser);
+
+        //dd($productos);
+
+        $marcas=marcas:: all();
+        $estilos=estilos::all();
+        $colores=colores::all();
+        $origenes=origenes::all();
+        $vac=compact("carritos","marcas","estilos","colores","origenes","idUser");
+
+      return view("carrito",$vac);
+
+      }
+
 
       //------------------------------------------------------------------Metodos para index/home----------------
 
 
       public function presentacion(){
-        $productosTotal=Producto::all()->chunk(4);
-        $productosTotal2=Producto::all()->where("precio","<",170)->chunk(4);
-
+        $productosTotal=Producto::all()->where("id","!=",1)->chunk(4);
+        $productosTotal2=Producto::all()->where("id","!=",1)->where("precio","<",170)->chunk(4);
+        $productosTotal23=Producto::all()->where("id","!=",1)->where("stock","<",4)->chunk(4);
         $productos=[0=> $productosTotal->first(),
-                    1=> $productosTotal2->first()
+                    1=> $productosTotal2->first(),
+                    2=> $productosTotal23->first()
                   ];
 
         $vac=compact('productos');

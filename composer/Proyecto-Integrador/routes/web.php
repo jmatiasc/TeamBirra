@@ -36,43 +36,42 @@ Route::get('/mostrarEditarDatos/{id}','userController@mostrarEditarDatos');
 Route::post('/editarDatos/{id}','userController@editarDatos');
 
 //---------------------------------------AGREGAR UN PRODUCTO A LA BASE DE DATOS
-Route::get('/agregarProducto', "productoController@mostrarAgregarProductos");
+Route::get('/agregarProducto', "productoController@mostrarAgregarProductos")->middleware('esAdmin');
 
-Route::post('/agregarProducto', 'productoController@agregarProducto');
+Route::post('/agregarProducto', 'productoController@agregarProducto')->middleware('esAdmin');
 
 
 Route::get('/PuntuarProducto/{id}', 'productoController@puntuarProducto');
 //------------------------------------EDITAR PRODUCTOS----------------------------------------------
 
 //Route::post('/modificarProductos', "productoController@mostrarParaModificarProductos");
-Route::get('/modificarProductos', "productoController@mostrarParaModificarProductos");
+Route::get('/modificarProductos', "productoController@mostrarParaModificarProductos")->middleware('esAdmin');
 
-Route::get('/eliminarProducto/{id}', "productoController@eliminarProducto");
+Route::get('/eliminarProducto/{id}', "productoController@eliminarProducto")->middleware('esAdmin');
 
-Route::get('/editarProducto/{id}', "productoController@editarProducto");
+Route::get('/editarProducto/{id}', "productoController@editarProducto")->middleware('esAdmin');
 
-Route::post('/editarProducto/{id}', "productoController@editarInfoProducto");
+Route::post('/editarProducto/{id}', "productoController@editarInfoProducto")->middleware('esAdmin');
 
 
 //--------------------------------------------CATALOGO--------------------------------------------
 
-Route::get('/catalogo', 'productoController@listadoDeProductos');
+Route::get('/catalogo/{productos?}', 'productoController@listadoDeProductos');
 
 Route::get('/producto/{id}', 'productoController@unProducto');
 
 //----------------------------------------------CARRITO-------------------------------------------
+Route::get('/carrito/{idUser?}', 'productoController@irCarrito')->middleware('auth');
 
-Route::get('/carrito/{idUser?}/{idProducto?}', 'productoController@agregarCarrito');
+Route::get('/carrito/{idUser?}/{idProducto?}', 'productoController@agregarCarrito')->middleware('auth');
 
-Route::get('/eliminar/{idUser}/{idProducto}', 'productoController@eliminarDeCarrito');
+Route::get('/eliminar/{idUser}/{idProducto}', 'productoController@eliminarDeCarrito')->middleware('auth');
 
-Route::get('/vaciarCarrito/{idUser}', 'productoController@vaciarCarrito');
+Route::get('/vaciarCarrito/{idUser}', 'productoController@vaciarCarrito')->middleware('auth');
 
-Route::get('/realizarCompra/{id}', 'ventasController@finalizarCompra');
+Route::get('/aumentarCantidad/{idUser}/{idProducto}', 'productoController@aumentarCantidad')->middleware('auth');
 
-Route::get('/aumentarCantidad/{idUser}/{idProducto}', 'productoController@aumentarCantidad');
-
-Route::get('/decrementarDeCarrito/{idUser}/{idProducto}', 'productoController@decrementarDeCarrito');
+Route::get('/decrementarDeCarrito/{idUser}/{idProducto}', 'productoController@decrementarDeCarrito')->middleware('auth');
 
 //------------------------------------------------CONTACTO----------------------------------------
 
@@ -89,3 +88,17 @@ Route::get('/faq', function () {
 //----------------------------------------------------VENTAS-----------------------------------------
 
 Route::get('/compra/{id}', 'ventasController@mostrarComprasUsuario');
+
+Route::get('/finalizarCompraDatos/{id}',"pedidosController@finalizarCompraDatos");
+
+Route::post('/confirmarCompra/{id}', "pedidosController@crearPedido");
+
+Route::get('/verPedidos/{id}',"pedidosController@listaPedidos");
+
+Route::get('/cancelarPedido/{id}/{nroPedido}',"pedidosController@cancelarPedido");
+
+Route::get('/administrarPedidos',"pedidosController@administrarPedidos")->middleware('esAdmin');
+
+Route::get('/actualizarEstado',"pedidosController@actualizarEstado")->middleware('esAdmin');
+
+Route::get('/confirmarVenta/{nroPedido}',"ventasController@finalizarVenta")->middleware('esAdmin');

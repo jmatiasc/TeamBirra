@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/catalogo';
 
     /**
      * Create a new controller instance.
@@ -54,7 +54,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'apellido' => ['required', 'string', 'max:255'],
             'dni' => ['required', 'integer', 'unique:users','nullable'],//deberia poner un maximo de 10 0 11 ----> Produce error por alguna razon
-            'nickName' => ['required', 'string', 'max:255'],
+            'nickName' => ['required', 'string', 'max:255','unique:users'],
             'direccion'=>['required', 'string', 'max:255','nullable'],
             'telefono'=>['integer','nullable'],//deberia poner un maximo ----> Produce error por alguna razon
 

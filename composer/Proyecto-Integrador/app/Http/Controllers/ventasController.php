@@ -13,34 +13,34 @@ use App\origenes;
 use App\carrito;
 use App\User;
 use App\venta;
+use App\pedidos;
 
 class ventasController extends Controller
 {
-    public function finalizarCompra($id){
+    public function finalizarVenta($nroPedido){
 
 
-      $productoEnCarrito= Carrito::all()->where("id_user","=",$id);
+      $pedidos= pedidos::where("numeroPedido","=",$nroPedido)->get();
 
 
-      foreach($productoEnCarrito as $carro) {
+      foreach($pedidos as $pedido) {
 
           $venta=new venta();
-          $venta->id_user=$carro->first()->id_user;
-          $venta->id_producto=$carro->first()->id_producto;
-          $venta->cantidad=$carro->first()->cantidad;
+          $venta->id_user=$pedido->id_user;
+          $venta->id_producto=$pedido->id_producto;
+          $venta->cantidad=$pedido->cantidad;
+          $venta->created_at=$pedido->created_at;
           $venta->save();
 
       }
 
-        foreach($productoEnCarrito as $carro)
+        foreach($pedidos as $pedido)
         {
-          $carro->first()->delete();
+          $pedido->delete();
         }
 
 
-      $user=User::find($id);
-      $vac=compact('user');
-      return view('/perfilUsuario',$vac);
+      return redirect('/administrarPedidos');
 
     }
 
@@ -57,7 +57,7 @@ class ventasController extends Controller
         return view("/mostrarCompras",$vac);
     }
 
-  
+
 
 
 }

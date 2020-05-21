@@ -7,11 +7,12 @@
      $cantidad=1;
   @endphp
 
-  <div class="container producto-Unitario ">
+  <div class="producto-unitario container ">
     <div class="card shadow p-3 mb-5 bg-white rounded">
 
 
-    <div class="imagen-producto col-12 col-sm-5 col-md-5 col-lg-5">
+
+    <div class="imagen-producto col-12 col-sm-5 col-md-5 col-lg-5" >
       <?php
               $file=$producto["imagen"];
               if(is_file($file )){
@@ -21,12 +22,23 @@
               }
 
               ?>
-        <img src="/storage/{{$producto->imagen}}" alt="<?php echo $img ?> ">
+              @php
+                if ($producto->color->nombre=="Rojo") {
+                  $img="circulo-rojo.png";
+                }else{
+                  if ($producto->color->nombre=="Negro") {
+                    $img="circulo-negro.png";
+                  }else{
+                      $img="circulo-amarillo.png";
+                  }
+                }
+              @endphp
+        <img style="background-image:url('../images/{{$img}}');" src="/storage/{{$producto->imagen}}" alt="<?php echo $img ?> ">
     </div>
 
 
 
-    <div class="descripcion-producto col-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="descripcion-producto col-12 col-sm-12 col-md-6 col-lg-6">
       <div class="nombre-Producto">
         <h2><?php echo $producto["nombre"]; ?></h2>
       </div>
@@ -35,10 +47,10 @@
         <h5>{{$producto->marca->nombre}}</h5>
       </div>
 
-      <div class="estrellas col-12 col-sm-12 col-md-12 col-lg-6">
+      <div class="estrellas col-12 col-sm-12 col-md-12 col-lg-12">
 
 
-        <span class="puntuacion col-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="puntuacion-producto col-12 col-sm-6 col-md-6 col-lg-5">
 
             <?php for( $i = 0; $i<$producto->puntuacion; $i++ ) : ?>
               <label for="rating-input-1-5" class="rating-star1"></label>
@@ -47,12 +59,12 @@
 
               <label for="rating-input-1-5" class="rating-star2"></label>
             <?php endfor ?>
-        </span>
+        </div>
 
-        <span class=" col-12 col-sm-6 col-md-6 col-lg-6">
+        <span class=" col-12 col-sm-12 col-md-6 col-lg-6">
           <form role="form" action='/PuntuarProducto/<?php echo $producto["id"]?>' method='get' enctype="multipart/form-data">
             <div class=" puntuar ">
-
+            <label class="col-12"> Puntúa el producto</label>
             <select id="inputState" name="puntos" class="form-control">
               @for ($i = 0; $i <= 5; $i++)
                 <option value="<?php echo $i?>" > <?php echo $i?></option>
@@ -118,11 +130,11 @@
           <samp class="sumar-restar"><a href="#">+</a></samp>-->
           <div class=" puntuar ">
             <label for="">Cant:</label>
-          <select id="inputState" name="cantidad" class="form-control">
+            <select id="inputState" name="cantidad" class="form-control">
             @for ($i = 1; $i <= $producto->stock; $i++)
               <option value="<?php echo $i?>" > <?php echo $i;   ?></option>
             @endfor
-          </select>
+            </select>
           </div>
         </div>
 

@@ -1,1 +1,0 @@
-{"usuarios":[{"name":"a","apellido":"a","email":"email@algo.com","password":"$2y$10$E6vvyeY7sK6IAt3jSGBw5eg9KT2yq6Xn9VbCfQ1fts88La8FnRXFK","imagen":"email@algo.com.jpg"}]}

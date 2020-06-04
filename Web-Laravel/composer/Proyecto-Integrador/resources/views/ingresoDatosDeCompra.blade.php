@@ -3,7 +3,7 @@
 
 
   @php
-      require 'C:/GitDH/TeamBirra-DH/teamBirra2 - Laravel/composer/vendor/autoload.php';
+      require 'C:/GH/TeamBirra/Web-Laravel/composer/vendor/autoload.php';
 
       MercadoPago\SDK::setAccessToken('TEST-2146857532287027-052613-fefc01ea878a1f20857f8b25d60400e4-189699062');
 
